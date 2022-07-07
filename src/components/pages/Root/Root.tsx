@@ -1,12 +1,12 @@
-import React from 'react';
-import OrderFormContainer from '../OrderPage';
+import React from 'react'
+import OrderFormContainer from '../OrderPage'
 
 function Root() {
   return (
-    <div className="App">
+    <div className='App'>
       <OrderFormContainer />
     </div>
-  );
+  )
 }
 
-export default Root;
+export default Root

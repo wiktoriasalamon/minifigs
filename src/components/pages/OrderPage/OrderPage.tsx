@@ -1,15 +1,10 @@
-import {Wrapper} from './OrderPage.styles';
+import { Wrapper } from './OrderPage.styles'
 
-interface Props {
-
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface Props {}
 
 const OrderPage: React.FC<Props> = () => {
-    return (
-        <Wrapper>
-            Hello
-        </Wrapper>
-    )
+  return <Wrapper>Hello</Wrapper>
 }
 
-export default OrderPage;
+export default OrderPage

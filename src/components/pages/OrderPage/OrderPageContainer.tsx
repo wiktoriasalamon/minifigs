@@ -1,13 +1,9 @@
-import OrderPage from "./OrderPage";
+import OrderPage from './OrderPage'
 
-interface Props {
-
-}
+interface Props {}
 
 const OrderPageContainer: React.FC<Props> = () => {
-    return (
-        <OrderPage />
-    )
+  return <OrderPage />
 }
 
-export default OrderPageContainer;
+export default OrderPageContainer
