@@ -1,10 +1,11 @@
-import React from 'react'
+import { GlobalStyle } from 'styles/GlobalStyle';
 import OrderFormContainer from '../OrderPage'
 
 function Root() {
   return (
     <div className='App'>
-      <OrderFormContainer />
+        <GlobalStyle />
+        <OrderFormContainer />
     </div>
   )
 }
