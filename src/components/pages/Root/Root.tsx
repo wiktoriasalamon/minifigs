@@ -1,11 +1,11 @@
-import { GlobalStyle } from 'styles/GlobalStyle';
+import { GlobalStyle } from 'styles/GlobalStyle'
 import OrderFormContainer from '../OrderPage'
 
 function Root() {
   return (
     <div className='App'>
-        <GlobalStyle />
-        <OrderFormContainer />
+      <GlobalStyle />
+      <OrderFormContainer />
     </div>
   )
 }

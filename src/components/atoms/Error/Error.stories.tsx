@@ -6,4 +6,4 @@ export default {
   component: Error,
 } as ComponentMeta<typeof Error>
 
-export const Primary = () => <Error message="The message is undefined!" />;
+export const Primary = () => <Error message='The message is undefined!' />
