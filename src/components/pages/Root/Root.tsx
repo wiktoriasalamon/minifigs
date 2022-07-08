@@ -1,6 +1,6 @@
-import { ThemeProvider } from 'styled-components';
-import { theme } from 'styles/theme';
-import {OrderPageContainer} from 'components/pages/OrderPage'
+import { ThemeProvider } from 'styled-components'
+import { theme } from 'styles/theme'
+import { OrderPageContainer } from 'components/pages/OrderPage'
 
 export function Root() {
   return (

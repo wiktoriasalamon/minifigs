@@ -1,1 +1,1 @@
-export {OrderPageContainer} from './OrderPageContainer'
+export { OrderPageContainer } from './OrderPageContainer'
