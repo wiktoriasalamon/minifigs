@@ -2,5 +2,5 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   height: 100vh;
-  background-color: #1f2137;
+  background-color: ${({theme}) => theme.colors.purple};
 `
