@@ -29,12 +29,10 @@ const StyledButton = styled.button<{ color: string }>`
   }
 `
 
-const Button: React.FC<Props> = ({ label, color, disabled, onClick }) => {
+export const Button: React.FC<Props> = ({ label, color, disabled, onClick }) => {
   return (
     <StyledButton onClick={onClick} disabled={disabled} color={color} type='button'>
       <>{label}</>
     </StyledButton>
   )
 }
-
-export default Button
