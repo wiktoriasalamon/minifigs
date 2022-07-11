@@ -1,13 +1,15 @@
+import { ThemeProvider } from 'styled-components'
+import { theme } from 'styles/theme'
 import { GlobalStyle } from 'styles/GlobalStyle'
-import OrderFormContainer from '../OrderPage'
+import { OrderPageContainer } from 'components/pages/OrderPage'
 
-function Root() {
+export function Root() {
   return (
     <div className='App'>
-      <GlobalStyle />
-      <OrderFormContainer />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <OrderPageContainer />
+      </ThemeProvider>
     </div>
   )
 }
-
-export default Root
