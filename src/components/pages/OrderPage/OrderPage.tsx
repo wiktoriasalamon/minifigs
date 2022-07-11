@@ -1,8 +1,14 @@
 import { Wrapper } from './OrderPage.styles'
+import { IMinifig } from './types'
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface Props {}
+interface Props {
+  minifig: IMinifig | null;
+}
 
-export const OrderPage: React.FC<Props> = () => {
-  return <Wrapper>Hello</Wrapper>
+export const OrderPage: React.FC<Props> = ({
+  minifig,
+}) => {
+  return <Wrapper>
+    {minifig && <img src={minifig.set_img_url} />}
+  </Wrapper>
 }
