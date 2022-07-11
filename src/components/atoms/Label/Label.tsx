@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { purple, white } from 'styles/colors'
-
 interface Props {
   children: string
   light?: boolean
@@ -9,7 +7,7 @@ interface Props {
 const StyledLabel = styled.p<{ light?: boolean }>`
   margin: 0;
   font-size: 14px;
-  color: ${({ light }) => (light ? white : purple)};
+  color: ${({ light, theme }) => (light ? theme.colors.white : theme.colors.purple)};
 `
 
 export const Label: React.FC<Props> = ({ children, light }) => (

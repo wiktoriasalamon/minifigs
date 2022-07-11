@@ -1,6 +1,0 @@
-export const blue = 'rgb(3, 141, 236)'
-export const grey = 'rgb(128, 128, 128)'
-export const orange = 'rgb(254, 175, 110)'
-export const purple = '#1f2137'
-export const red = 'rgb(222,75,68)'
-export const white = 'rgb(256, 256, 256)'
