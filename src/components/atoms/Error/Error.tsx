@@ -11,6 +11,4 @@ const StyledParagraph = styled.p`
   font-size: 14px;
 `
 
-const Error: React.FC<Props> = ({ message }) => <StyledParagraph>{message}</StyledParagraph>
-
-export default Error
+ export const Error: React.FC<Props> = ({ message }) => <StyledParagraph>{message}</StyledParagraph>

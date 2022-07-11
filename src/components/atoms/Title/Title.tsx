@@ -11,8 +11,6 @@ const StyledTitle = styled.h1<{ light?: boolean }>`
   text-transform: uppercase;
 `
 
-const Title: React.FC<Props> = ({ children, light }) => (
+export const Title: React.FC<Props> = ({ children, light }) => (
   <StyledTitle light={light}>{children}</StyledTitle>
 )
-
-export default Title

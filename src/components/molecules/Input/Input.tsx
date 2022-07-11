@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   gap: 5px;
 `
 
-const Input: React.FC<Props> = ({ label, errorMessage, value, placeholder, onChange }) => {
+export const Input: React.FC<Props> = ({ label, errorMessage, value, placeholder, onChange }) => {
   return (
     <Wrapper>
       <Label>{label}</Label>

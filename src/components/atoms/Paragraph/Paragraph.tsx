@@ -10,6 +10,4 @@ const StyledParagraph = styled.p`
   color: ${purple};
 `
 
-const Paragraph: React.FC<Props> = ({ children }) => <StyledParagraph>{children}</StyledParagraph>
-
-export default Paragraph
+export const Paragraph: React.FC<Props> = ({ children }) => <StyledParagraph>{children}</StyledParagraph>

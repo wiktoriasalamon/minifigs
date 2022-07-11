@@ -12,8 +12,6 @@ const StyledLabel = styled.p<{ light?: boolean }>`
   color: ${({ light }) => (light ? white : purple)};
 `
 
-const Label: React.FC<Props> = ({ children, light }) => (
+export const Label: React.FC<Props> = ({ children, light }) => (
   <StyledLabel light={light}>{children}</StyledLabel>
 )
-
-export default Label
