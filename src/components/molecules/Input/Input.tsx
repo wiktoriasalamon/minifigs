@@ -1,5 +1,5 @@
-import Label from 'components/atoms/Label'
-import Error from 'components/atoms/Error'
+import { Label } from 'components/atoms/Label'
+import { Error } from 'components/atoms/Error'
 import styled from 'styled-components'
 import React from 'react'
 
