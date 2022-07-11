@@ -6,7 +6,7 @@ interface Props {
 
 const StyledParagraph = styled.p`
   margin: 0;
-  color: ${({theme}) => theme.colors.purple};
+  color: ${({ theme }) => theme.colors.purple};
 `
 
 export const Paragraph: React.FC<Props> = ({ children }) => (
