@@ -10,5 +10,6 @@ export const rebrickableApi = axios.create({
 })
 
 export const rebrickableUrls = {
-    getAllMinifigs: '/api/v3/lego/minifigs',
+    getAllMinifigs: () => '/api/v3/lego/minifigs',
+    getPartsOfMinifig: (id: string) => `/api/v3/lego/minifigs/${id}/parts/`,
 } 
