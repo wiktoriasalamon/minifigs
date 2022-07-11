@@ -1,5 +1,4 @@
-import { rebrickableApi } from 'api'
-import { rebrickableUrls } from 'api/rebrickable'
+import { rebrickableApi, rebrickableUrls } from 'api'
 import { useEffect, useState } from 'react'
 import { getRandomOfArray } from 'utils'
 import { OrderPage } from './OrderPage'
@@ -12,16 +11,19 @@ export const OrderPageContainer: React.FC = () => {
 
   useEffect(() => {
     const fetchMinifigs = async () => {
-      const response = await rebrickableApi.get<{results: IMinifig[]}>(rebrickableUrls.getAllMinifigs(), {
-        params: {
-          search: 'Harry Potter',
-        }
-      })
+      const response = await rebrickableApi.get<{ results: IMinifig[] }>(
+        rebrickableUrls.getAllMinifigs(),
+        {
+          params: {
+            search: 'Harry Potter',
+          },
+        },
+      )
 
       setAllMinifigs(response.data.results)
     }
 
-    fetchMinifigs() 
+    fetchMinifigs()
   }, [])
 
   useEffect(() => {
@@ -34,9 +36,11 @@ export const OrderPageContainer: React.FC = () => {
     const randomMinifig = getRandomOfArray<IMinifig>(allMinifigs)
     setCurrentMinifig(randomMinifig)
 
-    const response = await rebrickableApi.get<{results: IMinifigPart[]}>(rebrickableUrls.getPartsOfMinifig(randomMinifig.set_num))
+    const response = await rebrickableApi.get<{ results: IMinifigPart[] }>(
+      rebrickableUrls.getPartsOfMinifig(randomMinifig.set_num),
+    )
     setMinifigParts(response.data.results)
   }
 
-  return <OrderPage minifig={minifig} parts={minifigParts}/>
+  return <OrderPage minifig={minifig} parts={minifigParts} />
 }

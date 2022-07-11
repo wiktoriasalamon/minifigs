@@ -1,1 +1,1 @@
-export { rebrickableApi } from './rebrickable'
+export { rebrickableApi, rebrickableUrls } from './rebrickable'
