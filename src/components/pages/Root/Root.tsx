@@ -1,12 +1,13 @@
-import React from 'react';
-import OrderFormContainer from '../OrderPage';
+import { ThemeProvider } from 'styled-components'
+import { theme } from 'styles/theme'
+import { OrderPageContainer } from 'components/pages/OrderPage'
 
-function Root() {
+export function Root() {
   return (
-    <div className="App">
-      <OrderFormContainer />
+    <div className='App'>
+      <ThemeProvider theme={theme}>
+        <OrderPageContainer />
+      </ThemeProvider>
     </div>
-  );
+  )
 }
-
-export default Root;
