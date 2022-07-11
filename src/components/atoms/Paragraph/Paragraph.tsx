@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { purple } from 'styles/colors'
 
 interface Props {
   children: string
@@ -7,7 +6,9 @@ interface Props {
 
 const StyledParagraph = styled.p`
   margin: 0;
-  color: ${purple};
+  color: ${({theme}) => theme.colors.purple};
 `
 
-export const Paragraph: React.FC<Props> = ({ children }) => <StyledParagraph>{children}</StyledParagraph>
+export const Paragraph: React.FC<Props> = ({ children }) => (
+  <StyledParagraph>{children}</StyledParagraph>
+)
