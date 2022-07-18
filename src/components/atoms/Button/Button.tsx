@@ -13,9 +13,9 @@ const StyledButton = styled.button<{ primary?: boolean }>`
   margin: 0;
   padding: 10px;
   width: 10rem;
-  background-color: ${({ primary, theme }) => primary ? theme.colors.blue : theme.colors.orange };
+  background-color: ${({ primary, theme }) => (primary ? theme.colors.blue : theme.colors.orange)};
   text-transform: uppercase;
-  color: ${({theme}) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.white};
   font-weight: bold;
 
   :not(:disabled):hover {
@@ -23,7 +23,7 @@ const StyledButton = styled.button<{ primary?: boolean }>`
   }
 
   &:disabled {
-    background-color: ${({theme}) => theme.colors.grey};
+    background-color: ${({ theme }) => theme.colors.grey};
     opacity: 50%;
   }
 `

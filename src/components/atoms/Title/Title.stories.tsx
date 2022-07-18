@@ -1,6 +1,6 @@
 import { ComponentMeta } from '@storybook/react'
 import { Title } from './Title'
-import {Background} from '../Background';
+import { Background } from '../Background'
 
 export default {
   title: 'Title',
@@ -14,7 +14,7 @@ export const Light = () => (
 )
 
 export const Dark = () => (
-    <Background>
-        <Title>Your minifig</Title>
-    </Background>
+  <Background>
+    <Title>Your minifig</Title>
+  </Background>
 )
