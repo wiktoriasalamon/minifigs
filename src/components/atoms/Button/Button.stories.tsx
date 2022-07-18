@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { blue } from '../../../styles/colors'
 import { Button } from './Button'
 
 export default {
@@ -11,7 +10,13 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} labe
 
 export const Primary = Template.bind({})
 Primary.args = {
-  color: blue,
+  primary: true,
+  disabled: false,
+  onClick: () => alert('Test'),
+}
+
+export const Secondary = Template.bind({})
+Secondary.args = {
   disabled: false,
   onClick: () => alert('Test'),
 }
