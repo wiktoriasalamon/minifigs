@@ -1,5 +1,5 @@
 import { ComponentMeta } from '@storybook/react'
-import Paragraph from './Paragraph'
+import { Paragraph } from './Paragraph'
 
 export default {
   title: 'Paragraph',

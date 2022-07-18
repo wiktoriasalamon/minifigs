@@ -1,6 +1,6 @@
 import { ComponentMeta } from '@storybook/react'
-import { purple } from 'styles/colors'
-import Title from './Title'
+import { Title } from './Title'
+import {Background} from '../Background';
 
 export default {
   title: 'Title',
@@ -8,9 +8,13 @@ export default {
 } as ComponentMeta<typeof Title>
 
 export const Light = () => (
-  <div style={{ backgroundColor: purple, padding: '20px' }}>
+  <Background dark>
     <Title light>Shipping details</Title>
-  </div>
+  </Background>
 )
 
-export const Dark = () => <Title>Your minifig</Title>
+export const Dark = () => (
+    <Background>
+        <Title>Your minifig</Title>
+    </Background>
+)

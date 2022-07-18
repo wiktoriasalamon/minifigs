@@ -1,16 +1,21 @@
 import { ComponentMeta } from '@storybook/react'
-import { purple } from 'styles/colors'
-import Label from './Label'
+import { Label } from './Label'
+import {Background} from '../Background';
 
 export default {
   title: 'Label',
   component: Label,
 } as ComponentMeta<typeof Label>
 
+
 export const Light = () => (
-  <div style={{ backgroundColor: purple, padding: '20px' }}>
+  <Background dark>
     <Label light>Phone number:</Label>
-  </div>
+  </Background>
 )
 
-export const Dark = () => <Label>Phone number:</Label>
+export const Dark = () => (
+    <Background>
+        <Label>Phone number:</Label>
+    </Background>
+)

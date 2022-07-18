@@ -1,22 +1,21 @@
 import styled from 'styled-components'
-import { grey, white } from 'styles/colors'
 
 interface Props {
   label: string
-  color: string
+  primary?: boolean
   onClick: () => void
   disabled?: boolean
 }
 
-const StyledButton = styled.button<{ color: string }>`
+const StyledButton = styled.button<{ primary?: boolean }>`
   border: none;
   border-radius: 20px;
   margin: 0;
   padding: 10px;
   width: 10rem;
-  background-color: ${({ color }) => color};
+  background-color: ${({ primary, theme }) => primary ? theme.colors.blue : theme.colors.orange };
   text-transform: uppercase;
-  color: ${white};
+  color: ${({theme}) => theme.colors.white};
   font-weight: bold;
 
   :not(:disabled):hover {
@@ -24,15 +23,15 @@ const StyledButton = styled.button<{ color: string }>`
   }
 
   &:disabled {
-    background-color: ${grey};
+    background-color: ${({theme}) => theme.colors.grey};
     opacity: 50%;
   }
 `
 
-export const Button: React.FC<Props> = ({ label, color, disabled, onClick }) => {
+export const Button: React.FC<Props> = ({ label, primary, disabled, onClick }) => {
   return (
-    <StyledButton onClick={onClick} disabled={disabled} color={color} type='button'>
-      <>{label}</>
+    <StyledButton onClick={onClick} disabled={disabled} primary={primary} type='button'>
+      <span>{label}</span>
     </StyledButton>
   )
 }
