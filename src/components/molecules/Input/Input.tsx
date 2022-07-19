@@ -10,6 +10,7 @@ interface Props {
   disabled?: boolean
   value: string
   onChange: (e: React.FormEvent<HTMLInputElement>) => void
+  id: string
 }
 
 const StyledInput = styled.input`
@@ -22,11 +23,11 @@ const Wrapper = styled.div`
   gap: 5px;
 `
 
-export const Input: React.FC<Props> = ({ label, errorMessage, value, placeholder, onChange }) => {
+export const Input: React.FC<Props> = ({ id, label, errorMessage, value, placeholder, onChange }) => {
   return (
     <Wrapper>
-      <Label>{label}</Label>
-      <StyledInput value={value} placeholder={placeholder} onChange={onChange} />
+      <Label htmlFor={id}>{label}</Label>
+      <StyledInput id={id} name={id} value={value} placeholder={placeholder} onChange={onChange} />
       {errorMessage && errorMessage.length > 0 && <Error message={errorMessage} />}
     </Wrapper>
   )
