@@ -15,6 +15,7 @@ interface Props {
 
 const StyledInput = styled.input`
   padding: 10px;
+  border-radius: 5px;
 `
 
 const Wrapper = styled.div`
