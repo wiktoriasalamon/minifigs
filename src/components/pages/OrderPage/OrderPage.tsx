@@ -1,7 +1,7 @@
 import { Wrapper } from './OrderPage.styles'
 import { IMinifig, IMinifigPart } from './types'
-import {FigureSidebarContainer} from '../../organisms/FigureSidebar';
-import {Title} from "../../atoms/Title";
+import { FigureSidebarContainer } from '../../organisms/FigureSidebar'
+import { Title } from '../../atoms/Title'
 
 interface Props {
   minifig: IMinifig | null
