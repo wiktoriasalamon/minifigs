@@ -1,5 +1,7 @@
 import { Wrapper } from './OrderPage.styles'
 import { IMinifig, IMinifigPart } from './types'
+import {FigureSidebarContainer} from '../../organisms/FigureSidebar';
+import {Title} from "../../atoms/Title";
 
 interface Props {
   minifig: IMinifig | null
@@ -9,10 +11,9 @@ interface Props {
 export const OrderPage: React.FC<Props> = ({ minifig, parts }) => {
   return (
     <Wrapper>
-      {minifig && <img src={minifig.set_img_url} />}
-      {parts.map((part) => (
-        <img src={part.part.part_img_url} key={part.part.part_num} />
-      ))}
+      <FigureSidebarContainer minifig={minifig} parts={parts}>
+        <Title>Your minifig</Title>
+      </FigureSidebarContainer>
     </Wrapper>
   )
 }

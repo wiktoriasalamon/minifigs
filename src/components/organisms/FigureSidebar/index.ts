@@ -1,0 +1,1 @@
+export {FigureSidebarContainer} from './FigureSidebarContainer'
