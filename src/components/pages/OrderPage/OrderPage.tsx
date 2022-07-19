@@ -12,10 +12,12 @@ export const OrderPage: React.FC<Props> = ({ minifig, parts, orderFormData }) =>
   return (
     <Wrapper>
       <OrderFormContainer data={orderFormData}/>
-      {minifig && <img alt="Lego figure" src={minifig.set_img_url} />}
-      {parts.map((part) => (
-        <img alt="Lego part" src={part.part.part_img_url} key={part.part.part_num} />
-      ))}
+      <div>
+        {minifig && <img alt="Lego figure" src={minifig.set_img_url} />}
+        {parts.map((part) => (
+            <img alt="Lego part" src={part.part.part_img_url} key={part.part.part_num} />
+        ))}
+      </div>
     </Wrapper>
   )
 }
