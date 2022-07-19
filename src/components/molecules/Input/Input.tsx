@@ -24,7 +24,14 @@ const Wrapper = styled.div`
   gap: 5px;
 `
 
-export const Input: React.FC<Props> = ({ id, label, errorMessage, value, placeholder, onChange }) => {
+export const Input: React.FC<Props> = ({
+  id,
+  label,
+  errorMessage,
+  value,
+  placeholder,
+  onChange,
+}) => {
   return (
     <Wrapper>
       <Label htmlFor={id}>{label}</Label>

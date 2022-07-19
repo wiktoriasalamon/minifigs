@@ -1,5 +1,5 @@
 import { Wrapper } from './OrderPage.styles'
-import {IMinifig, IMinifigPart, IOrderFormData} from './types'
+import { IMinifig, IMinifigPart, IOrderFormData } from './types'
 import { OrderFormContainer } from 'components/organisms/OrderForm'
 
 interface Props {
@@ -11,11 +11,11 @@ interface Props {
 export const OrderPage: React.FC<Props> = ({ minifig, parts, orderFormData }) => {
   return (
     <Wrapper>
-      <OrderFormContainer data={orderFormData}/>
+      <OrderFormContainer data={orderFormData} />
       <div>
-        {minifig && <img alt="Lego figure" src={minifig.set_img_url} />}
+        {minifig && <img alt='Lego figure' src={minifig.set_img_url} />}
         {parts.map((part) => (
-            <img alt="Lego part" src={part.part.part_img_url} key={part.part.part_num} />
+          <img alt='Lego part' src={part.part.part_img_url} key={part.part.part_num} />
         ))}
       </div>
     </Wrapper>

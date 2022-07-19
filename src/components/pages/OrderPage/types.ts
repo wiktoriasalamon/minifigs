@@ -14,13 +14,13 @@ export interface IMinifigPart {
 }
 
 export interface IOrderFormData {
-  name?: string;
-  surname?: string;
-  phoneNumber?: string;
-  email?: string;
-  dateOfBirth?: Date;
-  address?: string;
-  city?: string;
-  state?: string;
-  zipCode?: number;
+  name?: string
+  surname?: string
+  phoneNumber?: string
+  email?: string
+  dateOfBirth?: Date
+  address?: string
+  city?: string
+  state?: string
+  zipCode?: number
 }

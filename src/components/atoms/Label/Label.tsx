@@ -12,5 +12,7 @@ const StyledLabel = styled.label<{ light?: boolean }>`
 `
 
 export const Label: React.FC<Props> = ({ children, light, htmlFor }) => (
-  <StyledLabel light={light} htmlFor={htmlFor}>{children}</StyledLabel>
+  <StyledLabel light={light} htmlFor={htmlFor}>
+    {children}
+  </StyledLabel>
 )

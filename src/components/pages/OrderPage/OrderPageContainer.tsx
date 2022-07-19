@@ -43,5 +43,5 @@ export const OrderPageContainer: React.FC = () => {
     setMinifigParts(response.data.results)
   }
 
-  return <OrderPage minifig={minifig} parts={minifigParts} orderFormData={orderFormData}/>
+  return <OrderPage minifig={minifig} parts={minifigParts} orderFormData={orderFormData} />
 }
