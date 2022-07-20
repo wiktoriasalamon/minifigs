@@ -1,17 +1,19 @@
-import { IMinifig, IMinifigPart } from '../../pages/OrderPage/types'
+import { Wrapper } from './FigureSidebar.styles'
+import { Paragraph } from '../../atoms/Paragraph'
+import { Title } from '../../atoms/Title'
 
 interface Props {
-  minifig: IMinifig | null
-  parts: IMinifigPart[]
+  minifig: JSX.Element | null
+  parts: JSX.Element[]
 }
 
 export const FigureSidebar: React.FC<Props> = ({ minifig, parts }) => {
   return (
-    <div>
-      {minifig && <img src={minifig.set_img_url} />}
-      {parts.map((part) => (
-        <img src={part.part.part_img_url} key={part.part.part_num} />
-      ))}
-    </div>
+    <Wrapper>
+      <Title>Your minifig</Title>
+      {minifig}
+      <Paragraph>{`There are ${parts.length} parts in this minifig:`}</Paragraph>
+      <div>{parts}</div>
+    </Wrapper>
   )
 }

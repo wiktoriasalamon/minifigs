@@ -1,1 +1,1 @@
-export { FigureSidebarContainer } from './FigureSidebarContainer'
+export { FigureSidebar } from './FigureSidebar'
