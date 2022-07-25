@@ -1,6 +1,9 @@
 import { Wrapper } from './OrderPage.styles'
 import { IMinifig, IMinifigPart, IOrderFormData } from './types'
 import { OrderFormContainer } from 'components/organisms/OrderForm'
+import { FigureSidebar } from '../../organisms/FigureSidebar'
+import { FigurePart } from '../../molecules/FigurePart'
+import { Figure } from '../../molecules/Figure'
 
 interface OrderPageProps {
   minifig: IMinifig | null
@@ -12,12 +15,17 @@ export const OrderPage: React.FC<OrderPageProps> = ({ minifig, parts, orderFormD
   return (
     <Wrapper>
       <OrderFormContainer data={orderFormData} />
-      <div>
-        {minifig && <img alt='Lego figure' src={minifig.set_img_url} />}
-        {parts.map((part) => (
-          <img alt='Lego part' src={part.part.part_img_url} key={part.part.part_num} />
+      <FigureSidebar
+        minifig={minifig && <Figure name={minifig.name} imageUrl={minifig.set_img_url} />}
+        parts={parts.map(({ part }) => (
+          <FigurePart
+            imageUrl={part.part_img_url}
+            name={part.name}
+            id={part.part_num}
+            key={part.part_num}
+          />
         ))}
-      </div>
+      />
     </Wrapper>
   )
 }

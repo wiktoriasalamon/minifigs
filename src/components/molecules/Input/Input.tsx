@@ -1,6 +1,6 @@
 import { Label } from 'components/atoms/Label'
 import { Error } from 'components/atoms/Error'
-import styled from 'styled-components'
+import { Wrapper, StyledInput } from './Input.styles'
 import React from 'react'
 
 interface InputProps {
@@ -12,17 +12,6 @@ interface InputProps {
   onChange: (e: React.FormEvent<HTMLInputElement>) => void
   id: string
 }
-
-const StyledInput = styled.input`
-  padding: 10px;
-  border-radius: 5px;
-`
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-`
 
 export const Input: React.FC<InputProps> = ({
   id,
