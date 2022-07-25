@@ -9,9 +9,9 @@ interface ButtonProps {
 
 const StyledButton = styled.button<{ primary?: boolean }>`
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   margin: 0;
-  padding: 10px;
+  padding: 12px;
   width: 10rem;
   background-color: ${({ primary, theme }) => (primary ? theme.colors.blue : theme.colors.orange)};
   text-transform: uppercase;

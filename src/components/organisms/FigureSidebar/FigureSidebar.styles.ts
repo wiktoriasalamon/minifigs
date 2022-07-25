@@ -9,17 +9,30 @@ export const Wrapper = styled.div`
   margin: 30px;
   border-radius: 10px;
   gap: 30px;
-  width: 25%;
-  padding: 20px;
-
-  > div:last-of-type {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  padding: 40px;
+  width: calc(100% - 60px);
 
   > p,
   h1 {
-    width: 100%;
+    align-self: flex-start;
   }
+
+  button {
+    width: 200px;
+  }
+`
+
+export const PartsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  overflow-y: scroll;
+`
+
+export const ActionsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 `

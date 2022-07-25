@@ -9,10 +9,6 @@ export const Wrapper = styled.div`
 
   @media (min-width: 1000px) {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
-
-  img {
-    width: 100px;
+    grid-template-columns: 1fr 700px;
   }
 `
