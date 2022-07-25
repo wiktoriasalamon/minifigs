@@ -2,13 +2,13 @@ import { Wrapper } from './OrderPage.styles'
 import { IMinifig, IMinifigPart, IOrderFormData } from './types'
 import { OrderFormContainer } from 'components/organisms/OrderForm'
 
-interface Props {
+interface OrderPageProps {
   minifig: IMinifig | null
   parts: IMinifigPart[]
   orderFormData: IOrderFormData
 }
 
-export const OrderPage: React.FC<Props> = ({ minifig, parts, orderFormData }) => {
+export const OrderPage: React.FC<OrderPageProps> = ({ minifig, parts, orderFormData }) => {
   return (
     <Wrapper>
       <OrderFormContainer data={orderFormData} />

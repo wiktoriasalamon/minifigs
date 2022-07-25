@@ -4,12 +4,12 @@ import { Input } from '../../molecules/Input'
 import { HorizontalFormFields, FormStyled, Wrapper } from './OrderForm.styles'
 import { Title } from '../../atoms/Title'
 
-interface Props {
+interface OrderFormProps {
   data: IOrderFormData
   formik: FormikProps<IOrderFormData>
 }
 
-export const OrderForm: React.FC<Props> = ({ formik }) => {
+export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
   const { handleSubmit, handleChange, values } = formik
 
   return (

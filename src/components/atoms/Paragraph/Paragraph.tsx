@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface Props {
+interface ParagraphProps {
   children: string
 }
 
@@ -9,6 +9,6 @@ const StyledParagraph = styled.p`
   color: ${({ theme }) => theme.colors.purple};
 `
 
-export const Paragraph: React.FC<Props> = ({ children }) => (
+export const Paragraph: React.FC<ParagraphProps> = ({ children }) => (
   <StyledParagraph>{children}</StyledParagraph>
 )

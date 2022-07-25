@@ -2,11 +2,11 @@ import { IOrderFormData } from 'components/pages/OrderPage/types'
 import { OrderForm } from './OrderForm'
 import { useFormik } from 'formik'
 
-interface Props {
+interface OrderFormContainerProps {
   data: IOrderFormData
 }
 
-export const OrderFormContainer: React.FC<Props> = ({ data }) => {
+export const OrderFormContainer: React.FC<OrderFormContainerProps> = ({ data }) => {
   const formik = useFormik<IOrderFormData>({
     initialValues: {
       email: '',

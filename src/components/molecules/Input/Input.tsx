@@ -3,7 +3,7 @@ import { Error } from 'components/atoms/Error'
 import styled from 'styled-components'
 import React from 'react'
 
-interface Props {
+interface InputProps {
   label: string
   placeholder?: string
   errorMessage?: string
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   gap: 5px;
 `
 
-export const Input: React.FC<Props> = ({
+export const Input: React.FC<InputProps> = ({
   id,
   label,
   errorMessage,
