@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface Props {
+interface ButtonProps {
   label: string
   primary?: boolean
   onClick: () => void
@@ -28,7 +28,7 @@ const StyledButton = styled.button<{ primary?: boolean }>`
   }
 `
 
-export const Button: React.FC<Props> = ({ label, primary, disabled, onClick }) => {
+export const Button: React.FC<ButtonProps> = ({ label, primary, disabled, onClick }) => {
   return (
     <StyledButton onClick={onClick} disabled={disabled} primary={primary} type='button'>
       <span>{label}</span>

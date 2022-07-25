@@ -12,3 +12,15 @@ export interface IMinifigPart {
     part_num: string
   }
 }
+
+export interface IOrderFormData {
+  name?: string
+  surname?: string
+  phoneNumber?: string
+  email?: string
+  dateOfBirth?: Date
+  address?: string
+  city?: string
+  state?: string
+  zipCode?: number
+}

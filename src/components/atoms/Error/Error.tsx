@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface Props {
+interface ErrorProps {
   message: string
 }
 
@@ -10,4 +10,6 @@ const StyledParagraph = styled.p`
   font-size: 14px;
 `
 
-export const Error: React.FC<Props> = ({ message }) => <StyledParagraph>{message}</StyledParagraph>
+export const Error: React.FC<ErrorProps> = ({ message }) => (
+  <StyledParagraph>{message}</StyledParagraph>
+)
