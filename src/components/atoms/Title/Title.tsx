@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-interface Props {
+
+interface TitleProps {
   children: string
   light?: boolean
 }
@@ -9,6 +10,6 @@ const StyledTitle = styled.h1<{ light?: boolean }>`
   text-transform: uppercase;
 `
 
-export const Title: React.FC<Props> = ({ children, light }) => (
+export const Title: React.FC<TitleProps> = ({ children, light }) => (
   <StyledTitle light={light}>{children}</StyledTitle>
 )
