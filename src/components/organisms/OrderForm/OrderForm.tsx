@@ -1,16 +1,18 @@
-import { IOrderFormData } from '../../pages/OrderPage/types'
-import { FormikProps } from 'formik'
-import { Input } from '../../molecules/Input'
-import { HorizontalFormFields, FormStyled, Wrapper } from './OrderForm.styles'
-import { Title } from '../../atoms/Title'
+import { IOrderFormData } from '../../pages/OrderPage/types';
+import { FormikProps } from 'formik';
+import { Input } from '../../molecules/Input';
+import { HorizontalFormFields, FormStyled, Wrapper } from './OrderForm.styles';
+import { Title } from '../../atoms/Title';
+import { Select } from '../../molecules/Select';
 
 interface OrderFormProps {
-  data: IOrderFormData
-  formik: FormikProps<IOrderFormData>
+  data: IOrderFormData;
+  formik: FormikProps<IOrderFormData>;
+  maxDate: string;
 }
 
-export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
-  const { handleSubmit, handleChange, values } = formik
+export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate }) => {
+  const { handleSubmit, handleChange, values } = formik;
 
   return (
     <Wrapper>
@@ -18,60 +20,68 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
         <Title light>Shipping details</Title>
         <HorizontalFormFields>
           <Input
-            id='name'
+            id="name"
             onChange={handleChange}
-            value={values.name ?? ''}
-            label='Name'
-            placeholder='Name'
+            value={values.name}
+            label="Name"
+            placeholder="Name"
           />
           <Input
-            id='surname'
+            id="surname"
             onChange={handleChange}
-            value={values.surname ?? ''}
-            label='Surname'
-            placeholder='Surname'
+            value={values.surname}
+            label="Surname"
+            placeholder="Surname"
           />
         </HorizontalFormFields>
         <Input
-          id='phoneNumber'
+          id="phoneNumber"
           onChange={handleChange}
-          value={values.phoneNumber ?? ''}
-          label='Phone number'
-          placeholder='Phone Number'
+          value={values.phoneNumber}
+          label="Phone number"
+          placeholder="Phone Number"
         />
         <Input
-          id='email'
+          id="email"
           onChange={handleChange}
-          value={values.email ?? ''}
-          label='Email Address'
-          placeholder='Email address'
-        />
-        {/* date picker */}
-        <Input
-          id='address'
-          onChange={handleChange}
-          value={values.address ?? ''}
-          label='Address'
-          placeholder='Address'
+          value={values.email}
+          label="Email Address"
+          placeholder="Email address"
         />
         <Input
-          id='city'
+          id="dateOfBirth"
           onChange={handleChange}
-          value={values.city ?? ''}
-          label='City'
-          placeholder='City'
+          value={values.dateOfBirth}
+          label="Date of birth"
+          placeholder="Date of birth"
+          type="date"
+          max={maxDate}
+        />
+        <Input
+          id="address"
+          onChange={handleChange}
+          value={values.address}
+          label="Address"
+          placeholder="Address"
+        />
+        <Input
+          id="city"
+          onChange={handleChange}
+          value={values.city}
+          label="City"
+          placeholder="City"
         />
         <HorizontalFormFields>
-          {/* state select */}
+          <Select options={[]} id="state" label="State" />
           <Input
-            id='zipCode'
+            id="zipCode"
             onChange={handleChange}
-            value={values.zipCode?.toString() ?? ''}
-            label='Zip Code'
-            placeholder='Zip Code'
+            value={values.zipCode}
+            label="Zip Code"
+            placeholder="Zip Code"
           />
         </HorizontalFormFields>
       </FormStyled>
     </Wrapper>
-  )
-}
+  );
+};
