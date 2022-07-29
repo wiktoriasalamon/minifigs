@@ -7,9 +7,11 @@ import { Separator } from '../../atoms/Separator'
 interface Props {
   minifig: JSX.Element | null
   parts: JSX.Element[]
+  onSubmit: () => void
+  onDrawFigure: () => void
 }
 
-export const FigureSidebar: React.FC<Props> = ({ minifig, parts }) => {
+export const FigureSidebar: React.FC<Props> = ({ minifig, parts, onDrawFigure, onSubmit }) => {
   return (
     <Wrapper>
       <Title>Your minifig</Title>
@@ -17,9 +19,9 @@ export const FigureSidebar: React.FC<Props> = ({ minifig, parts }) => {
       <Paragraph>{`There are ${parts.length} parts in this minifig:`}</Paragraph>
       <PartsWrapper>{parts}</PartsWrapper>
       <ActionsWrapper>
-        <Button label='Draw again' onClick={() => alert('Draw again')} />
+        <Button label='Draw again' onClick={onDrawFigure} />
         <Separator>or</Separator>
-        <Button label='Place an order' onClick={() => alert('Place an order')} primary />
+        <Button label='Place an order' onClick={onSubmit} primary />
       </ActionsWrapper>
     </Wrapper>
   )

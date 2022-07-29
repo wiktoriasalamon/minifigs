@@ -9,12 +9,22 @@ interface OrderPageProps {
   minifig: IMinifig | null
   parts: IMinifigPart[]
   orderFormData: IOrderFormData
+  onSubmit: () => void
+  onDrawFigure: () => void
+  setData: (filed: string, value: any) => void
 }
 
-export const OrderPage: React.FC<OrderPageProps> = ({ minifig, parts, orderFormData }) => {
+export const OrderPage: React.FC<OrderPageProps> = ({
+  minifig,
+  parts,
+  orderFormData,
+  onSubmit,
+  onDrawFigure,
+  setData,
+}) => {
   return (
     <Wrapper>
-      <OrderFormContainer data={orderFormData} />
+      <OrderFormContainer data={orderFormData} setData={setData} />
       <FigureSidebar
         minifig={minifig && <Figure name={minifig.name} imageUrl={minifig.set_img_url} />}
         parts={parts.map(({ part }) => (
@@ -25,6 +35,8 @@ export const OrderPage: React.FC<OrderPageProps> = ({ minifig, parts, orderFormD
             key={part.part_num}
           />
         ))}
+        onSubmit={onSubmit}
+        onDrawFigure={onDrawFigure}
       />
     </Wrapper>
   )
