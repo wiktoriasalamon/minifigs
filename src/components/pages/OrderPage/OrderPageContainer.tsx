@@ -3,12 +3,17 @@ import { useEffect, useState } from 'react'
 import { getRandomOfArray } from 'utils'
 import { OrderPage } from './OrderPage'
 import { IMinifig, IMinifigPart, IOrderFormData } from './types'
+import { getOrderSchema } from './orderSchema'
+import * as yup from 'yup'
 
 export const OrderPageContainer: React.FC = () => {
   const [allMinifigs, setAllMinifigs] = useState<IMinifig[]>([])
   const [minifig, setCurrentMinifig] = useState<null | IMinifig>(null)
   const [minifigParts, setMinifigParts] = useState<IMinifigPart[]>([])
   const [orderFormData, setOrderFormData] = useState<IOrderFormData>({})
+  const [isFormValid, setFormValid] = useState(false)
+
+  const schema = getOrderSchema()
 
   useEffect(() => {
     const fetchMinifigs = async () => {
@@ -30,6 +35,19 @@ export const OrderPageContainer: React.FC = () => {
   useEffect(() => {
     drawMinifig()
   }, [allMinifigs])
+
+  useEffect(() => {
+    const validate = async () => {
+      try {
+        const isValid = await schema.isValid(orderFormData)
+        setFormValid(isValid)
+      } catch (e) {
+        setFormValid(false)
+      }
+    }
+
+    validate()
+  }, [orderFormData])
 
   const drawMinifig = async () => {
     if (allMinifigs.length === 0) return
@@ -62,6 +80,7 @@ export const OrderPageContainer: React.FC = () => {
       onSubmit={handleSubmit}
       onDrawFigure={drawMinifig}
       setData={setData}
+      isSubmitDisabled={!isFormValid}
     />
   )
 }

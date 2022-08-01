@@ -1,5 +1,7 @@
 import { ComponentMeta } from '@storybook/react'
 import { Select } from './Select'
+import { Option } from './types'
+import { SingleValue } from 'react-select'
 
 export default {
   title: 'Select',
@@ -21,4 +23,8 @@ const options = [
   },
 ]
 
-export const Primary = () => <Select id='number' options={options} label='Select number' />
+const handleChange = (option: SingleValue<Option>) => alert(option)
+
+export const Primary = () => (
+  <Select id='number' options={options} label='Select number' onChange={handleChange} />
+)

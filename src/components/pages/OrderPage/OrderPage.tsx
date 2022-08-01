@@ -12,6 +12,7 @@ interface OrderPageProps {
   onSubmit: () => void
   onDrawFigure: () => void
   setData: (filed: string, value: any) => void
+  isSubmitDisabled: boolean
 }
 
 export const OrderPage: React.FC<OrderPageProps> = ({
@@ -21,6 +22,7 @@ export const OrderPage: React.FC<OrderPageProps> = ({
   onSubmit,
   onDrawFigure,
   setData,
+  isSubmitDisabled,
 }) => {
   return (
     <Wrapper>
@@ -37,6 +39,7 @@ export const OrderPage: React.FC<OrderPageProps> = ({
         ))}
         onSubmit={onSubmit}
         onDrawFigure={onDrawFigure}
+        isSubmitDisabled={isSubmitDisabled}
       />
     </Wrapper>
   )

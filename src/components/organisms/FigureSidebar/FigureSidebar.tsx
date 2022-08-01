@@ -9,9 +9,16 @@ interface Props {
   parts: JSX.Element[]
   onSubmit: () => void
   onDrawFigure: () => void
+  isSubmitDisabled: boolean
 }
 
-export const FigureSidebar: React.FC<Props> = ({ minifig, parts, onDrawFigure, onSubmit }) => {
+export const FigureSidebar: React.FC<Props> = ({
+  minifig,
+  parts,
+  onDrawFigure,
+  onSubmit,
+  isSubmitDisabled,
+}) => {
   return (
     <Wrapper>
       <Title>Your minifig</Title>
@@ -21,7 +28,7 @@ export const FigureSidebar: React.FC<Props> = ({ minifig, parts, onDrawFigure, o
       <ActionsWrapper>
         <Button label='Draw again' onClick={onDrawFigure} />
         <Separator>or</Separator>
-        <Button label='Place an order' onClick={onSubmit} primary />
+        <Button label='Place an order' onClick={onSubmit} primary disabled={isSubmitDisabled} />
       </ActionsWrapper>
     </Wrapper>
   )

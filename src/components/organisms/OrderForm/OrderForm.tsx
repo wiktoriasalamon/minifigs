@@ -4,16 +4,25 @@ import { Input } from '../../molecules/Input'
 import { HorizontalFormFields, FormStyled, Wrapper } from './OrderForm.styles'
 import { Title } from '../../atoms/Title'
 import { Select } from '../../molecules/Select'
+import { SingleValue } from 'react-select'
+import { Option } from '../../molecules/Select/types'
 
 interface OrderFormProps {
   data: IOrderFormData
   formik: FormikProps<IOrderFormData>
   maxDate: string
-  onChange: (event: React.ChangeEvent<any>) => void
   getError: (fieldName: string) => string | undefined
+  handleChange: (event: React.ChangeEvent<any>) => void
+  handleSelect: (fieldName: string) => (newValue: SingleValue<Option>) => void
 }
 
-export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange, getError }) => {
+export const OrderForm: React.FC<OrderFormProps> = ({
+  formik,
+  maxDate,
+  getError,
+  handleChange,
+  handleSelect,
+}) => {
   const { handleSubmit, values, handleBlur } = formik
 
   return (
@@ -23,7 +32,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange,
         <HorizontalFormFields>
           <Input
             id='name'
-            onChange={onChange}
+            onChange={handleChange}
             value={values.name}
             label='Name'
             placeholder='Name'
@@ -32,7 +41,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange,
           />
           <Input
             id='surname'
-            onChange={onChange}
+            onChange={handleChange}
             value={values.surname}
             label='Surname'
             placeholder='Surname'
@@ -42,7 +51,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange,
         </HorizontalFormFields>
         <Input
           id='phoneNumber'
-          onChange={onChange}
+          onChange={handleChange}
           value={values.phoneNumber}
           label='Phone number'
           placeholder='Phone Number'
@@ -51,7 +60,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange,
         />
         <Input
           id='email'
-          onChange={onChange}
+          onChange={handleChange}
           value={values.email}
           label='Email Address'
           placeholder='Email address'
@@ -60,7 +69,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange,
         />
         <Input
           id='dateOfBirth'
-          onChange={onChange}
+          onChange={handleChange}
           value={values.dateOfBirth}
           label='Date of birth'
           placeholder='Date of birth'
@@ -71,7 +80,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange,
         />
         <Input
           id='address'
-          onChange={onChange}
+          onChange={handleChange}
           value={values.address}
           label='Address'
           placeholder='Address'
@@ -80,7 +89,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange,
         />
         <Input
           id='city'
-          onChange={onChange}
+          onChange={handleChange}
           value={values.city}
           label='City'
           placeholder='City'
@@ -89,15 +98,16 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik, maxDate, onChange,
         />
         <HorizontalFormFields>
           <Select
-            options={[]}
+            options={[{ value: '1', label: 'one' }]}
             id='state'
             label='State'
             errorMessage={getError('state')}
             onBlur={handleBlur}
+            onChange={handleSelect('state')}
           />
           <Input
             id='zipCode'
-            onChange={onChange}
+            onChange={handleChange}
             value={values.zipCode}
             label='Zip Code'
             placeholder='Zip Code'
