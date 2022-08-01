@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const HorizontalFormFields = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const HorizontalFormFields = styled.div`
       width: 50%;
     }
   }
-`;
+`
 
 export const FormStyled = styled.form`
   width: 80%;
@@ -29,7 +29,7 @@ export const FormStyled = styled.form`
   label {
     color: ${({ theme }) => theme.colors.white};
   }
-`;
+`
 
 export const Wrapper = styled.div`
   display: flex;
@@ -39,4 +39,4 @@ export const Wrapper = styled.div`
   @media (min-width: 1000px) {
     width: 100%;
   }
-`;
+`

@@ -1,10 +1,10 @@
-import { ComponentMeta } from '@storybook/react';
-import { Select } from './Select';
+import { ComponentMeta } from '@storybook/react'
+import { Select } from './Select'
 
 export default {
   title: 'Select',
   component: Select,
-} as ComponentMeta<typeof Select>;
+} as ComponentMeta<typeof Select>
 
 const options = [
   {
@@ -19,8 +19,6 @@ const options = [
     value: 3,
     label: 'Three',
   },
-];
+]
 
-export const Primary = () => (
-  <Select id="number" options={options} label="Select number" />
-);
+export const Primary = () => <Select id='number' options={options} label='Select number' />
