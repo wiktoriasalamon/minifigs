@@ -26,16 +26,18 @@ export const OrderPage: React.FC<OrderPageProps> = ({ minifig, parts, orderFormD
           )
         }
         parts={
-          loading
-            ? [<div key='Loading'>Loading</div>]
-            : parts.map(({ part }) => (
-                <FigurePart
-                  imageUrl={part.part_img_url}
-                  name={part.name}
-                  id={part.part_num}
-                  key={part.part_num}
-                />
-              ))
+          loading ? (
+            <div key='Loading'>Loading</div>
+          ) : (
+            parts.map(({ part }) => (
+              <FigurePart
+                imageUrl={part.part_img_url}
+                name={part.name}
+                id={part.part_num}
+                key={part.part_num}
+              />
+            ))
+          )
         }
       />
     </Wrapper>
