@@ -67,6 +67,33 @@ describe('Order Page', () => {
     await waitFor(() => expect(screen.queryByText('Loading')).toBeNull())
     await waitFor(() => expect(screen.findByText(parts[1].part.name)).toBeDefined())
 
-    expect(screen.findByText(figure.name)).toBeDefined()
+    expect(await screen.findByText(figure.name)).toBeDefined()
+  })
+
+  it('fetches figure data without image and displays image placeholder', async () => {
+    // change server to return undefined img url
+    server.use(
+      rest.get(
+        `${process.env.REACT_APP_REBRICKABLE_API_URL}${rebrickableUrls.getAllMinifigs()}`,
+        (req, res, ctx) => {
+          return res.once(
+            ctx.json({
+              results: [
+                {
+                  ...figure,
+                  set_img_url: undefined,
+                },
+              ],
+            }),
+          )
+        },
+      ),
+    )
+
+    render(<OrderPageContainer />)
+    await waitFor(() => expect(screen.queryByText('Loading')).toBeNull())
+    await waitFor(() => expect(screen.findByText(parts[1].part.name)).toBeDefined())
+
+    expect(await screen.findAllByAltText('Placeholder image')).toHaveLength(1)
   })
 })
