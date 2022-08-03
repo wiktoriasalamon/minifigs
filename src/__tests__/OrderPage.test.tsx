@@ -67,7 +67,7 @@ describe('Order Page', () => {
     await waitFor(() => expect(screen.queryByText('Loading')).toBeNull())
     await waitFor(() => expect(screen.findByText(parts[1].part.name)).toBeDefined())
 
-    expect(await screen.findByText(figure.name)).toBeDefined()
+    expect(screen.findByText(figure.name)).toBeDefined()
   })
 
   it('fetches figure data without image and displays image placeholder', async () => {
