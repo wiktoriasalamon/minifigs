@@ -6,15 +6,17 @@ import { Separator } from '../../atoms/Separator'
 
 interface Props {
   minifig: JSX.Element | null
-  parts: JSX.Element[]
+  parts: JSX.Element | JSX.Element[]
 }
 
 export const FigureSidebar: React.FC<Props> = ({ minifig, parts }) => {
+  const partsNumber = Array.isArray(parts) ? parts.length : 0
+
   return (
     <Wrapper>
       <Title>Your minifig</Title>
       {minifig}
-      <Paragraph>{`There are ${parts.length} parts in this minifig:`}</Paragraph>
+      <Paragraph>{`There are ${partsNumber} parts in this minifig:`}</Paragraph>
       <PartsWrapper>{parts}</PartsWrapper>
       <ActionsWrapper>
         <Button label='Draw again' onClick={() => alert('Draw again')} />

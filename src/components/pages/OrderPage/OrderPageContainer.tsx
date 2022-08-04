@@ -9,6 +9,7 @@ export const OrderPageContainer: React.FC = () => {
   const [minifig, setCurrentMinifig] = useState<null | IMinifig>(null)
   const [minifigParts, setMinifigParts] = useState<IMinifigPart[]>([])
   const [orderFormData, setOrderFormData] = useState<IOrderFormData>({})
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchMinifigs = async () => {
@@ -24,7 +25,9 @@ export const OrderPageContainer: React.FC = () => {
       setAllMinifigs(response.data.results)
     }
 
+    setLoading(true)
     fetchMinifigs()
+    setLoading(false)
   }, [])
 
   useEffect(() => {
@@ -37,11 +40,21 @@ export const OrderPageContainer: React.FC = () => {
     const randomMinifig = getRandomOfArray<IMinifig>(allMinifigs)
     setCurrentMinifig(randomMinifig)
 
+    setLoading(true)
     const response = await rebrickableApi.get<{ results: IMinifigPart[] }>(
       rebrickableUrls.getPartsOfMinifig(randomMinifig.set_num),
     )
+    setLoading(false)
+
     setMinifigParts(response.data.results)
   }
 
-  return <OrderPage minifig={minifig} parts={minifigParts} orderFormData={orderFormData} />
+  return (
+    <OrderPage
+      minifig={minifig}
+      parts={minifigParts}
+      orderFormData={orderFormData}
+      loading={isLoading}
+    />
+  )
 }

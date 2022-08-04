@@ -11,6 +11,7 @@
     "@types/react-dom": "^18.0.6",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "msw": "^0.44.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -89,7 +90,6 @@
     "webpack": "^5.73.0"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "eslint --fix",
     "src/**/*.{ts,tsx}": "prettier --write --config ./.prettierrc"
   }
 }
