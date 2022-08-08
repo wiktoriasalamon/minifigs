@@ -3,6 +3,7 @@ import { Paragraph } from '../../atoms/Paragraph'
 import { Title } from '../../atoms/Title'
 import { Button } from '../../atoms/Button'
 import { Separator } from '../../atoms/Separator'
+import { translate } from 'utils'
 
 interface Props {
   minifig: JSX.Element | null
@@ -10,16 +11,18 @@ interface Props {
 }
 
 export const FigureSidebar: React.FC<Props> = ({ minifig, parts }) => {
+  const t = translate('orderPage.sidebar')
+
   return (
     <Wrapper>
-      <Title>Your minifig</Title>
+      <Title>{t('title')}</Title>
       {minifig}
-      <Paragraph>{`There are ${parts.length} parts in this minifig:`}</Paragraph>
+      <Paragraph>{t('partsLabel', { count: parts.length })}</Paragraph>
       <PartsWrapper>{parts}</PartsWrapper>
       <ActionsWrapper>
-        <Button label='Draw again' onClick={() => alert('Draw again')} />
+        <Button label={t('drawAgain')} onClick={() => alert(t('drawAgain'))} />
         <Separator>or</Separator>
-        <Button label='Place an order' onClick={() => alert('Place an order')} primary />
+        <Button label={t('order')} onClick={() => alert(t('order'))} primary />
       </ActionsWrapper>
     </Wrapper>
   )

@@ -3,6 +3,7 @@ import { FormikProps } from 'formik'
 import { Input } from '../../molecules/Input'
 import { HorizontalFormFields, FormStyled, Wrapper } from './OrderForm.styles'
 import { Title } from '../../atoms/Title'
+import { translate } from 'utils'
 
 interface OrderFormProps {
   data: IOrderFormData
@@ -11,6 +12,7 @@ interface OrderFormProps {
 
 export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
   const { handleSubmit, handleChange, values } = formik
+  const t = translate('orderPage.orderForm')
 
   return (
     <Wrapper>
@@ -21,45 +23,45 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
             id='name'
             onChange={handleChange}
             value={values.name ?? ''}
-            label='Name'
-            placeholder='Name'
+            label={t('name')}
+            placeholder={t('name')}
           />
           <Input
             id='surname'
             onChange={handleChange}
             value={values.surname ?? ''}
-            label='Surname'
-            placeholder='Surname'
+            label={t('surname')}
+            placeholder={t('surname')}
           />
         </HorizontalFormFields>
         <Input
           id='phoneNumber'
           onChange={handleChange}
           value={values.phoneNumber ?? ''}
-          label='Phone number'
-          placeholder='Phone Number'
+          label={t('phoneNumber')}
+          placeholder={t('phoneNumber')}
         />
         <Input
           id='email'
           onChange={handleChange}
           value={values.email ?? ''}
-          label='Email Address'
-          placeholder='Email address'
+          label={t('email')}
+          placeholder={t('email')}
         />
         {/* date picker */}
         <Input
           id='address'
           onChange={handleChange}
           value={values.address ?? ''}
-          label='Address'
-          placeholder='Address'
+          label={t('address')}
+          placeholder={t('address')}
         />
         <Input
           id='city'
           onChange={handleChange}
           value={values.city ?? ''}
-          label='City'
-          placeholder='City'
+          label={t('city')}
+          placeholder={t('city')}
         />
         <HorizontalFormFields>
           {/* state select */}
@@ -67,8 +69,8 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
             id='zipCode'
             onChange={handleChange}
             value={values.zipCode?.toString() ?? ''}
-            label='Zip Code'
-            placeholder='Zip Code'
+            label={t('zipCode')}
+            placeholder={t('zipCode')}
           />
         </HorizontalFormFields>
       </FormStyled>
