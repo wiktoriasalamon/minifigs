@@ -23,7 +23,7 @@ export const Input: React.FC<InputProps> = ({
   value,
   placeholder,
   onChange,
-  type,
+  type = 'text',
   min,
   max,
   onBlur,
