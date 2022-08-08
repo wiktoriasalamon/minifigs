@@ -1,10 +1,9 @@
-import { rebrickableApi, rebrickableUrls } from 'api'
 import { useEffect, useState } from 'react'
+import { rebrickableApi, rebrickableUrls } from 'api'
 import { getRandomOfArray } from 'utils'
 import { OrderPage } from './OrderPage'
-import { IMinifig, IMinifigPart, IOrderFormData } from './types'
 import { getOrderSchema } from './orderSchema'
-import * as yup from 'yup'
+import { IMinifig, IMinifigPart, IOrderFormData } from './types'
 
 export const OrderPageContainer: React.FC = () => {
   const [allMinifigs, setAllMinifigs] = useState<IMinifig[]>([])

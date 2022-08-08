@@ -1,9 +1,9 @@
+import { Figure } from 'components/molecules/Figure'
+import { FigurePart } from 'components/molecules/FigurePart'
+import { FigureSidebar } from 'components/organisms/FigureSidebar'
+import { OrderFormContainer } from 'components/organisms/OrderForm'
 import { Wrapper } from './OrderPage.styles'
 import { IMinifig, IMinifigPart, IOrderFormData } from './types'
-import { OrderFormContainer } from 'components/organisms/OrderForm'
-import { FigureSidebar } from '../../organisms/FigureSidebar'
-import { FigurePart } from '../../molecules/FigurePart'
-import { Figure } from '../../molecules/Figure'
 
 interface OrderPageProps {
   minifig: IMinifig | null

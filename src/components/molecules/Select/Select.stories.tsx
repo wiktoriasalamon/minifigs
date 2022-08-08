@@ -1,7 +1,7 @@
 import { ComponentMeta } from '@storybook/react'
+import { SingleValue } from 'react-select'
 import { Select } from './Select'
 import { Option } from './types'
-import { SingleValue } from 'react-select'
 
 export default {
   title: 'Select',

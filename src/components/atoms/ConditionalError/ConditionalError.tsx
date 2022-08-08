@@ -1,6 +1,5 @@
-import { StyledParagraph } from './ConditionalError.styles'
-import React from 'react'
 import { capitalizeFistLetter } from 'utils'
+import { StyledParagraph } from './ConditionalError.styles'
 
 interface ErrorProps {
   message?: string

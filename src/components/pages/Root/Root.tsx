@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components'
-import { theme } from 'styles/theme'
-import { GlobalStyle } from 'styles/GlobalStyle'
 import { OrderPageContainer } from 'components/pages/OrderPage'
+import { GlobalStyle } from 'styles/GlobalStyle'
+import { theme } from 'styles/theme'
 
 export function Root() {
   return (

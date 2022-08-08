@@ -1,11 +1,11 @@
-import { IOrderFormData } from 'components/pages/OrderPage/types'
-import { OrderForm } from './OrderForm'
 import { useFormik } from 'formik'
-import { getYesterdayDate } from 'utils'
 import get from 'lodash/get'
-import { getOrderSchema } from 'components/pages/OrderPage/orderSchema'
 import { SingleValue } from 'react-select'
-import { Option } from '../../molecules/Select/types'
+import { Option } from 'components/molecules/Select/types'
+import { getOrderSchema } from 'components/pages/OrderPage/orderSchema'
+import { IOrderFormData } from 'components/pages/OrderPage/types'
+import { getYesterdayDate } from 'utils'
+import { OrderForm } from './OrderForm'
 
 interface OrderFormContainerProps {
   data: IOrderFormData

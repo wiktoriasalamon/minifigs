@@ -1,11 +1,11 @@
-import { IOrderFormData } from '../../pages/OrderPage/types'
 import { FormikProps } from 'formik'
-import { Input } from '../../molecules/Input'
-import { HorizontalFormFields, FormStyled, Wrapper } from './OrderForm.styles'
-import { Title } from '../../atoms/Title'
-import { Select } from '../../molecules/Select'
 import { SingleValue } from 'react-select'
-import { Option } from '../../molecules/Select/types'
+import { Title } from 'components/atoms/Title'
+import { Input } from 'components/molecules/Input'
+import { Select } from 'components/molecules/Select'
+import { Option } from 'components/molecules/Select/types'
+import { IOrderFormData } from 'components/pages/OrderPage/types'
+import { FormStyled, HorizontalFormFields, Wrapper } from './OrderForm.styles'
 
 interface OrderFormProps {
   data: IOrderFormData

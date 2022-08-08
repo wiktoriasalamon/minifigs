@@ -1,7 +1,6 @@
-import { Label } from 'components/atoms/Label'
 import { ConditionalError } from 'components/atoms/ConditionalError'
-import { Wrapper, StyledInput } from './Input.styles'
-import React from 'react'
+import { Label } from 'components/atoms/Label'
+import { StyledInput, Wrapper } from './Input.styles'
 
 interface InputProps {
   label: string

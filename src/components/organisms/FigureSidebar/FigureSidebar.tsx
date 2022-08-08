@@ -1,8 +1,8 @@
-import { Wrapper, PartsWrapper, ActionsWrapper } from './FigureSidebar.styles'
-import { Paragraph } from '../../atoms/Paragraph'
-import { Title } from '../../atoms/Title'
-import { Button } from '../../atoms/Button'
-import { Separator } from '../../atoms/Separator'
+import { Button } from 'components/atoms/Button'
+import { Paragraph } from 'components/atoms/Paragraph'
+import { Separator } from 'components/atoms/Separator'
+import { Title } from 'components/atoms/Title'
+import { ActionsWrapper, PartsWrapper, Wrapper } from './FigureSidebar.styles'
 
 interface Props {
   minifig: JSX.Element | null

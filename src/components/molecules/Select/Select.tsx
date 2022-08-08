@@ -1,9 +1,8 @@
 import ReactSelect, { SingleValue } from 'react-select'
-import { Label } from '../../atoms/Label'
-import { Option } from './types'
+import { ConditionalError } from 'components/atoms/ConditionalError'
+import { Label } from 'components/atoms/Label'
 import { Wrapper } from './Select.styles'
-import { ConditionalError } from '../../atoms/ConditionalError'
-import React from 'react'
+import { Option } from './types'
 
 interface SelectProps {
   options: Option[]
