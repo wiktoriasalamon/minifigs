@@ -1,16 +1,25 @@
-import { Wrapper, PartsWrapper, ActionsWrapper } from './FigureSidebar.styles'
-import { Paragraph } from '../../atoms/Paragraph'
-import { Title } from '../../atoms/Title'
-import { Button } from '../../atoms/Button'
-import { Separator } from '../../atoms/Separator'
+import { Button } from 'components/atoms/Button'
+import { Paragraph } from 'components/atoms/Paragraph'
+import { Separator } from 'components/atoms/Separator'
+import { Title } from 'components/atoms/Title'
 import { translate } from 'utils'
+import { ActionsWrapper, PartsWrapper, Wrapper } from './FigureSidebar.styles'
 
 interface Props {
   minifig: JSX.Element | null
   parts: JSX.Element[]
+  onSubmit: () => void
+  onDrawFigure: () => void
+  isSubmitDisabled: boolean
 }
 
-export const FigureSidebar: React.FC<Props> = ({ minifig, parts }) => {
+export const FigureSidebar: React.FC<Props> = ({
+  minifig,
+  parts,
+  onDrawFigure,
+  onSubmit,
+  isSubmitDisabled,
+}) => {
   const t = translate('orderPage.sidebar')
 
   return (
@@ -20,9 +29,9 @@ export const FigureSidebar: React.FC<Props> = ({ minifig, parts }) => {
       <Paragraph>{t('partsLabel', { count: parts.length })}</Paragraph>
       <PartsWrapper>{parts}</PartsWrapper>
       <ActionsWrapper>
-        <Button label={t('drawAgain')} onClick={() => alert(t('drawAgain'))} />
+        <Button label={t('drawAgain')} onClick={onDrawFigure} />
         <Separator>or</Separator>
-        <Button label={t('order')} onClick={() => alert(t('order'))} primary />
+        <Button label={t('order')} onClick={onSubmit} primary disabled={isSubmitDisabled} />
       </ActionsWrapper>
     </Wrapper>
   )

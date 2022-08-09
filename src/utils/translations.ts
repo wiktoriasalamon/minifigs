@@ -1,4 +1,4 @@
-import { Replacements, translate as i18translate, TranslateOptions } from 'react-i18nify'
+import { translate as i18translate, Replacements, TranslateOptions } from 'react-i18nify'
 
 export const translate =
   (basePath: string) => (key: string, replacements?: Replacements, options?: TranslateOptions) =>

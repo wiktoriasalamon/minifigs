@@ -8,7 +8,9 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
-        "prettier"
+        "prettier",
+        "plugin:import/errors",
+        "plugin:import/warnings"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -22,13 +24,58 @@
         "react",
         "react-hooks",
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "import"
     ],
     "rules": {
         "quotes": ["error", "single"],
         "no-duplicate-imports": "error",
         "react/react-in-jsx-scope": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "sort-imports": ["error", {
+            "ignoreCase": true,
+            "ignoreDeclarationSort": true
+        }],
+        "import/order": ["error",
+            {
+                "groups" : [
+                    "external",
+                    "builtin",
+                    "internal",
+                    "sibling",
+                    "parent",
+                    "index"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "api",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "components",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "styles",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "utils",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "assets/**",
+                        "group": "internal",
+                        "position": "after"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["internal"],
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ]
     },
     "settings": {
         "import/resolver": {
