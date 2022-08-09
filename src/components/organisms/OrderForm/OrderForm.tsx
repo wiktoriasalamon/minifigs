@@ -5,6 +5,7 @@ import { Input } from 'components/molecules/Input'
 import { Select } from 'components/molecules/Select'
 import { Option } from 'components/molecules/Select/types'
 import { IOrderFormData } from 'components/pages/OrderPage/types'
+import { translate } from 'utils'
 import { FormStyled, HorizontalFormFields, Wrapper } from './OrderForm.styles'
 
 interface OrderFormProps {
@@ -24,6 +25,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({
   handleSelect,
 }) => {
   const { handleSubmit, values, handleBlur } = formik
+  const t = translate('orderPage.orderForm')
 
   return (
     <Wrapper>
@@ -34,38 +36,38 @@ export const OrderForm: React.FC<OrderFormProps> = ({
             id='name'
             onChange={handleChange}
             value={values.name}
-            label='Name'
-            placeholder='Name'
             errorMessage={getError('name')}
             onBlur={handleBlur}
+            label={t('name')}
+            placeholder={t('name')}
           />
           <Input
             id='surname'
             onChange={handleChange}
             value={values.surname}
-            label='Surname'
-            placeholder='Surname'
             errorMessage={getError('surname')}
             onBlur={handleBlur}
+            label={t('surname')}
+            placeholder={t('surname')}
           />
         </HorizontalFormFields>
         <Input
           id='phoneNumber'
           onChange={handleChange}
           value={values.phoneNumber}
-          label='Phone number'
-          placeholder='Phone Number'
           errorMessage={getError('phoneNumber')}
           onBlur={handleBlur}
+          label={t('phoneNumber')}
+          placeholder={t('phoneNumber')}
         />
         <Input
           id='email'
           onChange={handleChange}
           value={values.email}
-          label='Email Address'
-          placeholder='Email address'
           errorMessage={getError('email')}
           onBlur={handleBlur}
+          label={t('email')}
+          placeholder={t('email')}
         />
         <Input
           id='dateOfBirth'
@@ -82,19 +84,19 @@ export const OrderForm: React.FC<OrderFormProps> = ({
           id='address'
           onChange={handleChange}
           value={values.address}
-          label='Address'
-          placeholder='Address'
           errorMessage={getError('address')}
           onBlur={handleBlur}
+          label={t('address')}
+          placeholder={t('address')}
         />
         <Input
           id='city'
           onChange={handleChange}
           value={values.city}
-          label='City'
-          placeholder='City'
           errorMessage={getError('city')}
           onBlur={handleBlur}
+          label={t('city')}
+          placeholder={t('city')}
         />
         <HorizontalFormFields>
           <Select
@@ -109,10 +111,10 @@ export const OrderForm: React.FC<OrderFormProps> = ({
             id='zipCode'
             onChange={handleChange}
             value={values.zipCode}
-            label='Zip Code'
-            placeholder='Zip Code'
             errorMessage={getError('zipCode')}
             onBlur={handleBlur}
+            label={t('zipCode')}
+            placeholder={t('zipCode')}
           />
         </HorizontalFormFields>
       </FormStyled>
