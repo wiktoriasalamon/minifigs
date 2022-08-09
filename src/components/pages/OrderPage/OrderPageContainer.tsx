@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { rebrickableApi, rebrickableUrls, statesApi, statesUrls } from 'api'
+import { IOption } from 'components/molecules/Select/types'
 import { getRandomOfArray } from 'utils'
 import { OrderPage } from './OrderPage'
 import { getOrderSchema } from './orderSchema'
@@ -10,7 +11,7 @@ export const OrderPageContainer: React.FC = () => {
   const [minifig, setCurrentMinifig] = useState<null | IMinifig>(null)
   const [minifigParts, setMinifigParts] = useState<IMinifigPart[]>([])
   const [orderFormData, setOrderFormData] = useState<IOrderFormData>({})
-  const [states, setStates] = useState<IState[]>([])
+  const [states, setStates] = useState<IOption[]>([])
   const [isFormValid, setFormValid] = useState(false)
 
   const schema = getOrderSchema()
@@ -32,7 +33,12 @@ export const OrderPageContainer: React.FC = () => {
     const fetchStates = async () => {
       const response = await statesApi.get<IState[]>(statesUrls.basic)
 
-      setStates(response.data)
+      setStates(
+        response.data.map(({ name, postal }) => ({
+          value: postal,
+          label: name,
+        })),
+      )
     }
 
     fetchMinifigs()
@@ -88,6 +94,7 @@ export const OrderPageContainer: React.FC = () => {
       onDrawFigure={drawMinifig}
       setData={setData}
       isSubmitDisabled={!isFormValid}
+      states={states}
     />
   )
 }

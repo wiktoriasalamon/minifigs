@@ -2,15 +2,15 @@ import ReactSelect, { SingleValue } from 'react-select'
 import { ConditionalError } from 'components/atoms/ConditionalError'
 import { Label } from 'components/atoms/Label'
 import { Wrapper } from './Select.styles'
-import { Option } from './types'
+import { IOption } from './types'
 
 interface SelectProps {
-  options: Option[]
+  options: IOption[]
   id: string
   label: string
   errorMessage?: string
   onBlur?: (e: React.FormEvent<HTMLInputElement>) => void
-  onChange: (newValue: SingleValue<Option>) => void
+  onChange: (newValue: SingleValue<IOption>) => void
 }
 
 export const Select: React.FC<SelectProps> = ({
