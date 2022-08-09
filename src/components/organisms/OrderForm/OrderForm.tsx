@@ -102,7 +102,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({
         />
         <HorizontalFormFields>
           <Select
-            options={[{ value: '1', label: 'one' }]}
+            options={states}
             id='state'
             label={t('state')}
             errorMessage={getError('state')}
