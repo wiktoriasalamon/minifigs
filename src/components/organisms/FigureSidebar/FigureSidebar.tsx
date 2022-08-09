@@ -3,14 +3,7 @@ import { Paragraph } from 'components/atoms/Paragraph'
 import { Separator } from 'components/atoms/Separator'
 import { Title } from 'components/atoms/Title'
 import { translate } from 'utils'
-import {
-  ActionsWrapper,
-  ActionsWrapper,
-  PartsWrapper,
-  PartsWrapper,
-  Wrapper,
-  Wrapper,
-} from './FigureSidebar.styles'
+import { ActionsWrapper, PartsWrapper, Wrapper } from './FigureSidebar.styles'
 
 interface Props {
   minifig: JSX.Element | null
