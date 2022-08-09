@@ -1,14 +1,15 @@
-import { rebrickableApi, rebrickableUrls } from 'api'
+import { rebrickableApi, rebrickableUrls, statesApi, statesUrls } from 'api'
 import { useEffect, useState } from 'react'
 import { getRandomOfArray } from 'utils'
 import { OrderPage } from './OrderPage'
-import { IMinifig, IMinifigPart, IOrderFormData } from './types'
+import { IMinifig, IMinifigPart, IOrderFormData, IState } from './types'
 
 export const OrderPageContainer: React.FC = () => {
   const [allMinifigs, setAllMinifigs] = useState<IMinifig[]>([])
   const [minifig, setCurrentMinifig] = useState<null | IMinifig>(null)
   const [minifigParts, setMinifigParts] = useState<IMinifigPart[]>([])
   const [orderFormData, setOrderFormData] = useState<IOrderFormData>({})
+  const [states, setStates] = useState<IState[]>([])
 
   useEffect(() => {
     const fetchMinifigs = async () => {
@@ -24,7 +25,14 @@ export const OrderPageContainer: React.FC = () => {
       setAllMinifigs(response.data.results)
     }
 
+    const fetchStates = async () => {
+      const response = await statesApi.get<IState[]>(statesUrls.basic)
+
+      setStates(response.data)
+    }
+
     fetchMinifigs()
+    fetchStates()
   }, [])
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const rebrickableApi = axios.create({
-  baseURL: 'https://rebrickable.com',
+  baseURL: process.env.REACT_APP_REBRICKABLE_API_URL,
   timeout: 1000,
   headers: {
     Authorization: `key ${process.env.REACT_APP_REBRICKABLE_API_KEY}`,
