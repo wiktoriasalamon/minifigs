@@ -18,11 +18,11 @@ export interface IOrderFormData {
   surname?: string
   phoneNumber?: string
   email?: string
-  dateOfBirth?: Date
+  dateOfBirth?: string
   address?: string
   city?: string
   state?: string
-  zipCode?: number
+  zipCode?: string
 }
 
 export interface IState {

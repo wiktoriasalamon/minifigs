@@ -8,7 +8,7 @@ export const HorizontalFormFields = styled.div`
 
   @media (min-width: 1000px) {
     flex-direction: row;
-    div {
+    > div {
       width: 50%;
     }
   }

@@ -1,17 +1,30 @@
-import { IOrderFormData } from '../../pages/OrderPage/types'
 import { FormikProps } from 'formik'
-import { Input } from '../../molecules/Input'
-import { HorizontalFormFields, FormStyled, Wrapper } from './OrderForm.styles'
-import { Title } from '../../atoms/Title'
+import { SingleValue } from 'react-select'
+import { Title } from 'components/atoms/Title'
+import { Input } from 'components/molecules/Input'
+import { Select } from 'components/molecules/Select'
+import { Option } from 'components/molecules/Select/types'
+import { IOrderFormData } from 'components/pages/OrderPage/types'
 import { translate } from 'utils'
+import { FormStyled, HorizontalFormFields, Wrapper } from './OrderForm.styles'
 
 interface OrderFormProps {
   data: IOrderFormData
   formik: FormikProps<IOrderFormData>
+  maxDate: string
+  getError: (fieldName: string) => string | undefined
+  handleChange: (event: React.ChangeEvent<any>) => void
+  handleSelect: (fieldName: string) => (newValue: SingleValue<Option>) => void
 }
 
-export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
-  const { handleSubmit, handleChange, values } = formik
+export const OrderForm: React.FC<OrderFormProps> = ({
+  formik,
+  maxDate,
+  getError,
+  handleChange,
+  handleSelect,
+}) => {
+  const { handleSubmit, values, handleBlur } = formik
   const t = translate('orderPage.orderForm')
 
   return (
@@ -22,14 +35,18 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
           <Input
             id='name'
             onChange={handleChange}
-            value={values.name ?? ''}
+            value={values.name}
+            errorMessage={getError('name')}
+            onBlur={handleBlur}
             label={t('name')}
             placeholder={t('name')}
           />
           <Input
             id='surname'
             onChange={handleChange}
-            value={values.surname ?? ''}
+            value={values.surname}
+            errorMessage={getError('surname')}
+            onBlur={handleBlur}
             label={t('surname')}
             placeholder={t('surname')}
           />
@@ -37,38 +54,65 @@ export const OrderForm: React.FC<OrderFormProps> = ({ formik }) => {
         <Input
           id='phoneNumber'
           onChange={handleChange}
-          value={values.phoneNumber ?? ''}
+          value={values.phoneNumber}
+          errorMessage={getError('phoneNumber')}
+          onBlur={handleBlur}
           label={t('phoneNumber')}
           placeholder={t('phoneNumber')}
         />
         <Input
           id='email'
           onChange={handleChange}
-          value={values.email ?? ''}
+          value={values.email}
+          errorMessage={getError('email')}
+          onBlur={handleBlur}
           label={t('email')}
           placeholder={t('email')}
         />
-        {/* date picker */}
+        <Input
+          id='dateOfBirth'
+          onChange={handleChange}
+          value={values.dateOfBirth}
+          label={t('dateOfBirth')}
+          placeholder={t('dateOfBirth')}
+          type='date'
+          max={maxDate}
+          errorMessage={getError('dateOfBirth')}
+          onBlur={handleBlur}
+        />
         <Input
           id='address'
           onChange={handleChange}
-          value={values.address ?? ''}
+          value={values.address}
+          errorMessage={getError('address')}
+          onBlur={handleBlur}
           label={t('address')}
           placeholder={t('address')}
         />
         <Input
           id='city'
           onChange={handleChange}
-          value={values.city ?? ''}
+          value={values.city}
+          errorMessage={getError('city')}
+          onBlur={handleBlur}
           label={t('city')}
           placeholder={t('city')}
         />
         <HorizontalFormFields>
-          {/* state select */}
+          <Select
+            options={[{ value: '1', label: 'one' }]}
+            id='state'
+            label={t('state')}
+            errorMessage={getError('state')}
+            onBlur={handleBlur}
+            onChange={handleSelect('state')}
+          />
           <Input
             id='zipCode'
             onChange={handleChange}
-            value={values.zipCode?.toString() ?? ''}
+            value={values.zipCode}
+            errorMessage={getError('zipCode')}
+            onBlur={handleBlur}
             label={t('zipCode')}
             placeholder={t('zipCode')}
           />

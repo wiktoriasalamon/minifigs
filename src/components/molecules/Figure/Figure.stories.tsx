@@ -1,6 +1,6 @@
 import { ComponentMeta } from '@storybook/react'
-import logo from '../../../../public/logo192.png'
 import { Figure } from './Figure'
+import logo from '../../../../public/logo192.png'
 
 export default {
   title: 'Figure',
