@@ -3,9 +3,11 @@ export const en = {
     orderForm: {
       address: 'Address',
       city: 'City',
+      dateOfBirth: 'Date of birth',
       email: 'Email address',
       name: 'Name',
       phoneNumber: 'Phone number',
+      state: 'State',
       surname: 'Surname',
       zipCode: 'Zip code',
     },
