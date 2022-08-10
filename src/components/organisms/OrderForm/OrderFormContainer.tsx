@@ -1,5 +1,6 @@
 import { useFormik } from 'formik'
 import get from 'lodash/get'
+import { useEffect } from 'react'
 import { SingleValue } from 'react-select'
 import { Option } from 'components/molecules/Select/types'
 import { getOrderSchema } from 'components/pages/OrderPage/orderSchema'
@@ -26,7 +27,20 @@ export const OrderFormContainer: React.FC<OrderFormContainerProps> = ({ data, se
     validationSchema: getOrderSchema(),
   })
 
-  const { handleChange: handleFormikChange, errors, touched, setFieldValue } = formik
+  const {
+    handleChange: handleFormikChange,
+    errors,
+    touched,
+    setFieldValue,
+    resetForm,
+    setValues,
+  } = formik
+
+  useEffect(() => {
+    if (Object.keys(data).length === 0) {
+      resetForm({ values: {} })
+    }
+  }, [data])
 
   const handleChange = (event: React.ChangeEvent<any>): void => {
     handleFormikChange(event)

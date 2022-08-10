@@ -1,4 +1,5 @@
 import { FormikProps } from 'formik'
+import get from 'lodash/get'
 import { SingleValue } from 'react-select'
 import { Title } from 'components/atoms/Title'
 import { Input } from 'components/molecules/Input'
@@ -27,77 +28,43 @@ export const OrderForm: React.FC<OrderFormProps> = ({
   const { handleSubmit, values, handleBlur } = formik
   const t = translate('orderPage.orderForm')
 
+  const mapToInput = ({
+    fieldName,
+    type,
+    max,
+  }: {
+    fieldName: string
+    type?: string
+    max?: any
+  }) => (
+    <Input
+      label={t(fieldName)}
+      onChange={handleChange}
+      id={fieldName}
+      value={get(values, fieldName, '')}
+      onBlur={handleBlur}
+      errorMessage={getError(fieldName)}
+      placeholder={t(fieldName)}
+      key={fieldName}
+      type={type}
+      max={max}
+    />
+  )
+
   return (
     <Wrapper>
       <FormStyled onSubmit={handleSubmit}>
         <Title light>Shipping details</Title>
         <HorizontalFormFields>
-          <Input
-            id='name'
-            onChange={handleChange}
-            value={values.name}
-            errorMessage={getError('name')}
-            onBlur={handleBlur}
-            label={t('name')}
-            placeholder={t('name')}
-          />
-          <Input
-            id='surname'
-            onChange={handleChange}
-            value={values.surname}
-            errorMessage={getError('surname')}
-            onBlur={handleBlur}
-            label={t('surname')}
-            placeholder={t('surname')}
-          />
+          {[{ fieldName: 'name' }, { fieldName: 'surname' }].map(mapToInput)}
         </HorizontalFormFields>
-        <Input
-          id='phoneNumber'
-          onChange={handleChange}
-          value={values.phoneNumber}
-          errorMessage={getError('phoneNumber')}
-          onBlur={handleBlur}
-          label={t('phoneNumber')}
-          placeholder={t('phoneNumber')}
-        />
-        <Input
-          id='email'
-          onChange={handleChange}
-          value={values.email}
-          errorMessage={getError('email')}
-          onBlur={handleBlur}
-          label={t('email')}
-          placeholder={t('email')}
-        />
-        <Input
-          id='dateOfBirth'
-          onChange={handleChange}
-          value={values.dateOfBirth}
-          label={t('dateOfBirth')}
-          placeholder={t('dateOfBirth')}
-          type='date'
-          max={maxDate}
-          errorMessage={getError('dateOfBirth')}
-          onBlur={handleBlur}
-        />
-        <Input
-          id='address'
-          onChange={handleChange}
-          value={values.address}
-          errorMessage={getError('address')}
-          onBlur={handleBlur}
-          label={t('address')}
-          placeholder={t('address')}
-        />
-        <Input
-          id='city'
-          onChange={handleChange}
-          value={values.city}
-          errorMessage={getError('city')}
-          onBlur={handleBlur}
-          label={t('city')}
-          placeholder={t('city')}
-        />
+        {[
+          { fieldName: 'phoneNumber' },
+          { fieldName: 'email' },
+          { fieldName: 'dateOfBirth', type: 'date', max: maxDate },
+          { fieldName: 'address' },
+          { fieldName: 'city' },
+        ].map(mapToInput)}
         <HorizontalFormFields>
           <Select
             options={[{ value: '1', label: 'one' }]}
@@ -107,15 +74,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({
             onBlur={handleBlur}
             onChange={handleSelect('state')}
           />
-          <Input
-            id='zipCode'
-            onChange={handleChange}
-            value={values.zipCode}
-            errorMessage={getError('zipCode')}
-            onBlur={handleBlur}
-            label={t('zipCode')}
-            placeholder={t('zipCode')}
-          />
+          {mapToInput({ fieldName: 'zipCode' })}
         </HorizontalFormFields>
       </FormStyled>
     </Wrapper>
