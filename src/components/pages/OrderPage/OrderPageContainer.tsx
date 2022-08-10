@@ -18,27 +18,35 @@ export const OrderPageContainer: React.FC = () => {
 
   useEffect(() => {
     const fetchMinifigs = async () => {
-      const response = await rebrickableApi.get<{ results: IMinifig[] }>(
-        rebrickableUrls.getAllMinifigs(),
-        {
-          params: {
-            search: 'Harry Potter',
+      try {
+        const response = await rebrickableApi.get<{ results: IMinifig[] }>(
+          rebrickableUrls.getAllMinifigs(),
+          {
+            params: {
+              search: 'Harry Potter',
+            },
           },
-        },
-      )
+        )
 
-      setAllMinifigs(response.data.results)
+        setAllMinifigs(response.data.results)
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     const fetchStates = async () => {
-      const response = await statesApi.get<IState[]>(statesUrls.basic)
+      try {
+        const response = await statesApi.get<IState[]>(statesUrls.basic)
 
-      setStates(
-        response.data.map(({ name, postal }) => ({
-          value: postal,
-          label: name,
-        })),
-      )
+        setStates(
+          response.data.map(({ name, postal }) => ({
+            value: postal,
+            label: name,
+          })),
+        )
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     fetchMinifigs()
