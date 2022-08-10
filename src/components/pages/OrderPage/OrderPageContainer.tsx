@@ -29,7 +29,7 @@ export const OrderPageContainer: React.FC = () => {
 
       setAllMinifigs(response.data.results)
     } catch (error) {
-      console.log(error)
+      // TODO: handle error
     }
   }
 
@@ -44,7 +44,7 @@ export const OrderPageContainer: React.FC = () => {
         })),
       )
     } catch (error) {
-      console.log(error)
+      // TODO: handle error
     }
   }
 
