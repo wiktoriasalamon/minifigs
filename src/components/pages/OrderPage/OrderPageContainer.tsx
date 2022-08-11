@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react'
-import { rebrickableApi, rebrickableUrls } from 'api'
+import { rebrickableApi, rebrickableUrls, statesApi, statesUrls } from 'api'
+import { IOption } from 'components/molecules/Select/types'
 import { getRandomOfArray } from 'utils'
 import { OrderPage } from './OrderPage'
 import { getOrderSchema } from './orderSchema'
-import { IMinifig, IMinifigPart, IOrderFormData } from './types'
+import { IMinifig, IMinifigPart, IOrderFormData, IState } from './types'
 
 export const OrderPageContainer: React.FC = () => {
   const [allMinifigs, setAllMinifigs] = useState<IMinifig[]>([])
   const [minifig, setCurrentMinifig] = useState<null | IMinifig>(null)
   const [minifigParts, setMinifigParts] = useState<IMinifigPart[]>([])
   const [orderFormData, setOrderFormData] = useState<IOrderFormData>({})
+  const [states, setStates] = useState<IOption[]>([])
   const [isFormValid, setFormValid] = useState(false)
 
   const schema = getOrderSchema()
 
-  useEffect(() => {
-    const fetchMinifigs = async () => {
+  const fetchMinifigs = async () => {
+    try {
       const response = await rebrickableApi.get<{ results: IMinifig[] }>(
         rebrickableUrls.getAllMinifigs(),
         {
@@ -26,9 +28,29 @@ export const OrderPageContainer: React.FC = () => {
       )
 
       setAllMinifigs(response.data.results)
+    } catch (error) {
+      // TODO: handle error
     }
+  }
 
+  const fetchStates = async () => {
+    try {
+      const response = await statesApi.get<IState[]>(statesUrls.basic)
+
+      setStates(
+        response.data.map(({ name, postal }) => ({
+          value: postal,
+          label: name,
+        })),
+      )
+    } catch (error) {
+      // TODO: handle error
+    }
+  }
+
+  useEffect(() => {
     fetchMinifigs()
+    fetchStates()
   }, [])
 
   useEffect(() => {
@@ -80,6 +102,7 @@ export const OrderPageContainer: React.FC = () => {
       onDrawFigure={drawMinifig}
       setData={setData}
       isSubmitDisabled={!isFormValid}
+      states={states}
     />
   )
 }

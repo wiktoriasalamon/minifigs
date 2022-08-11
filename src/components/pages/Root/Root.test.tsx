@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react'
 import { Root } from './Root'
 
-test('renders learn react link', () => {
-  const { container } = render(<Root />)
+test("renders component with an 'App' className", async () => {
+  const { container } = await render(<Root />)
   const appContainer = container.getElementsByClassName('App')
-  expect(appContainer).toBeDefined()
+  await expect(appContainer).toBeDefined()
 })

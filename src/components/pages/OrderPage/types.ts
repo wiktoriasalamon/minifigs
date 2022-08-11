@@ -24,3 +24,8 @@ export interface IOrderFormData {
   state?: string
   zipCode?: string
 }
+
+export interface IState {
+  name: string
+  postal: string
+}

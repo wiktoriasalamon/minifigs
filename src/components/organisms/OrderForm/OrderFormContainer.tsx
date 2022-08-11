@@ -1,7 +1,7 @@
 import { useFormik } from 'formik'
 import get from 'lodash/get'
 import { SingleValue } from 'react-select'
-import { Option } from 'components/molecules/Select/types'
+import { IOption } from 'components/molecules/Select/types'
 import { getOrderSchema } from 'components/pages/OrderPage/orderSchema'
 import { IOrderFormData } from 'components/pages/OrderPage/types'
 import { getYesterdayDate } from 'utils'
@@ -10,9 +10,14 @@ import { OrderForm } from './OrderForm'
 interface OrderFormContainerProps {
   data: IOrderFormData
   setData: (field: string, value: any) => void
+  states: IOption[]
 }
 
-export const OrderFormContainer: React.FC<OrderFormContainerProps> = ({ data, setData }) => {
+export const OrderFormContainer: React.FC<OrderFormContainerProps> = ({
+  data,
+  setData,
+  states,
+}) => {
   const yesterday = getYesterdayDate()
   const maxDate = yesterday.toISOString().split('T')[0]
 
@@ -37,7 +42,7 @@ export const OrderFormContainer: React.FC<OrderFormContainerProps> = ({ data, se
 
   const handleSelect =
     (fieldName: string) =>
-    (newValue: SingleValue<Option>): void => {
+    (newValue: SingleValue<IOption>): void => {
       setFieldValue(fieldName, newValue?.value)
       setData(fieldName, newValue?.value)
     }
@@ -54,6 +59,7 @@ export const OrderFormContainer: React.FC<OrderFormContainerProps> = ({ data, se
       getError={getError}
       handleChange={handleChange}
       handleSelect={handleSelect}
+      states={states}
     />
   )
 }
