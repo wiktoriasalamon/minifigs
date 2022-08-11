@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { rebrickableApi, rebrickableUrls, statesApi, statesUrls } from 'api'
+import { translate } from 'react-i18nify'
+import { toast } from 'react-toastify'
+import { ordersApi, rebrickableApi, rebrickableUrls, statesApi, statesUrls } from 'api'
 import { IOption } from 'components/molecules/Select/types'
 import { getRandomOfArray } from 'utils'
 import { OrderPage } from './OrderPage'
@@ -89,8 +91,22 @@ export const OrderPageContainer: React.FC = () => {
     }))
   }
 
-  const handleSubmit = () => {
-    alert(JSON.stringify(orderFormData))
+  const clearForm = async () => {
+    setOrderFormData({})
+    await drawMinifig()
+  }
+
+  const handleSubmit = async () => {
+    try {
+      await ordersApi.post('/', {
+        ...orderFormData,
+        minifig: minifig?.set_num,
+      })
+
+      await clearForm()
+    } catch (e) {
+      toast(translate('general.errors.general'))
+    }
   }
 
   return (

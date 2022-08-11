@@ -1,4 +1,9 @@
 export const en = {
+  general: {
+    errors: {
+      general: 'Something went wrong.',
+    },
+  },
   orderPage: {
     orderForm: {
       address: 'Address',
