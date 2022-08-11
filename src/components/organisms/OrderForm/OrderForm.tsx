@@ -4,7 +4,7 @@ import { SingleValue } from 'react-select'
 import { Title } from 'components/atoms/Title'
 import { Input } from 'components/molecules/Input'
 import { Select } from 'components/molecules/Select'
-import { Option } from 'components/molecules/Select/types'
+import { IOption } from 'components/molecules/Select/types'
 import { IOrderFormData } from 'components/pages/OrderPage/types'
 import { translate } from 'utils'
 import { FormStyled, HorizontalFormFields, Wrapper } from './OrderForm.styles'
@@ -15,7 +15,8 @@ interface OrderFormProps {
   maxDate: string
   getError: (fieldName: string) => string | undefined
   handleChange: (event: React.ChangeEvent<any>) => void
-  handleSelect: (fieldName: string) => (newValue: SingleValue<Option>) => void
+  handleSelect: (fieldName: string) => (newValue: SingleValue<IOption>) => void
+  states: IOption[]
 }
 
 export const OrderForm: React.FC<OrderFormProps> = ({
@@ -24,6 +25,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({
   getError,
   handleChange,
   handleSelect,
+  states,
 }) => {
   const { handleSubmit, values, handleBlur } = formik
   const t = translate('orderPage.orderForm')
@@ -67,7 +69,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({
         ].map(mapToInput)}
         <HorizontalFormFields>
           <Select
-            options={[{ value: '1', label: 'one' }]}
+            options={states}
             id='state'
             label={t('state')}
             errorMessage={getError('state')}
