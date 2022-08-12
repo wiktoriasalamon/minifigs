@@ -1,5 +1,5 @@
-import { ConditionalError } from 'components/atoms/ConditionalError'
-import { Label } from 'components/atoms/Label'
+import { ConditionalError } from 'components/common/ConditionalError'
+import { Label } from 'components/common/Label'
 import { StyledInput, Wrapper } from './Input.styles'
 
 interface InputProps {

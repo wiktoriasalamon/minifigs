@@ -1,7 +1,7 @@
-import { Button } from 'components/atoms/Button'
-import { Paragraph } from 'components/atoms/Paragraph'
-import { Separator } from 'components/atoms/Separator'
-import { Title } from 'components/atoms/Title'
+import { Button } from 'components/common/Button'
+import { Paragraph } from 'components/common/Paragraph'
+import { Separator } from 'components/common/Separator'
+import { Title } from 'components/common/Title'
 import { translate } from 'utils'
 import { ActionsWrapper, PartsWrapper, Wrapper } from './FigureSidebar.styles'
 

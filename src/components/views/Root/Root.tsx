@@ -1,7 +1,7 @@
 import { setLocale, setTranslations } from 'react-i18nify'
 import { ToastContainer } from 'react-toastify'
 import { ThemeProvider } from 'styled-components'
-import { OrderPageContainer } from 'components/pages/OrderPage'
+import { OrderPageContainer } from 'components/views/OrderPage'
 import { GlobalStyle } from 'styles/GlobalStyle'
 import { theme } from 'styles/theme'
 import { languages } from 'translations'
