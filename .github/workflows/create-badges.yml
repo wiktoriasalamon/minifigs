@@ -20,10 +20,13 @@ jobs:
           npm install
           npm test . -- --coverage --coverage-reporters=json-summary
           
-          ls coverage -a
-          
           SUMMARY="$(cat ./coverage/coverage-summary.json | head -1 | awk '{print $2}')"
           TOKENS=($(echo SUMMARY | tr ":" " " | tr "}" " "))
+          
+          echo "${SUMMARY}"
+          echo "${TOKENS}"
+          echo "${TOKENS[5]}"
+          echo "${TOKENS[17]}"
           
           echo "LINES_COVERAGE=$(echo ${TOKENS[5]})" >> $GITHUB_ENV
           echo "FUNCTIONS_COVERAGE=$(echo ${TOKENS[17]})" >> $GITHUB_ENV
