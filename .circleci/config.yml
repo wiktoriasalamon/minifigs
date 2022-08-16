@@ -72,9 +72,9 @@ jobs:
       - run:
           name: artifacts fix
           command: |
-            RESULTS_DIR=`ls -d coverage*`
+            RESULTS_DIR=`ls -d`
             mkdir coverage
-            cp -r $RESULTS_DIR/ coverage
+            cp -r $RESULTS_DIR/coverage/ coverage
 
       - store_artifacts:
           path: coverage
