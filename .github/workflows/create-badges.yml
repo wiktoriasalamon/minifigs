@@ -17,6 +17,7 @@ jobs:
       
       - name: Get Coverage for badge
         run: |
+          npm install
           npm test . -- --coverage
           
           SUMMARY="$(cat ./coverage/coverage-summary.json | head -1 | awk '{print $2}')"
