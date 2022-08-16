@@ -18,7 +18,7 @@ jobs:
       - name: Get Coverage for badge
         run: |
           npm install
-          npm test . -- --coverage
+          npm test . -- --coverage --coverage-reporters=json-summary
           
           ls coverage -a
           
