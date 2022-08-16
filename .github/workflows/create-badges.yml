@@ -17,13 +17,13 @@ jobs:
       
       - name: Get Coverage for badge
         run: |
-          LINES_SUMMARY="$(npm test -- --coverageReporters='text-summary' | tail -2 | head -1)"
-          FUNCTIONS_SUMMARY="$(npm test -- --coverageReporters='text-summary' | tail -3 | head -1)"
-          LINES_TOKENS=($LINES_SUMMARY)
-          FUNCTIONS_TOKENS=($FUNCTIONS_SUMMARY)
+          npm run test:badges
           
-          echo "LINES_COVERAGE=$(echo ${LINES_TOKENS[2]})" >> $GITHUB_ENV
-          echo "FUNCTIONS_COVERAGE=$(echo ${FUNCTIONS_TOKENS[2]})" >> $GITHUB_ENV
+          SUMMARY="$(cat ./coverage/coverage-summary.json | head -1 | awk '{print $2}')"
+          TOKENS=($(echo SUMMARY | tr ":" " " | tr "}" " "))
+          
+          echo "LINES_COVERAGE=$(echo ${TOKENS[5]})" >> $GITHUB_ENV
+          echo "FUNCTIONS_COVERAGE=$(echo ${TOKENS[17]})" >> $GITHUB_ENV
 
       - name: Dynamic Badges
         uses: Schneegans/dynamic-badges-action@v1.4.0
