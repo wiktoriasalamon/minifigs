@@ -28,7 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:coverage": "npm test -- --coverage",
+    "test:coverage": "npm test . -- --coverage",
     "test:badges": "npm run test:coverage  && jest-coverage-badges",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
