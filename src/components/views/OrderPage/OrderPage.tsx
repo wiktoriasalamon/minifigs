@@ -3,10 +3,10 @@ import { Figure } from 'components/modules/Figure'
 import { FigurePart } from 'components/modules/FigurePart'
 import { FigureSidebar } from 'components/modules/FigureSidebar'
 import { OrderFormContainer } from 'components/modules/OrderForm'
+import { IMinifig, IMinifigPart, IOrderFormData } from './OrderPage.interface'
 import { Wrapper } from './OrderPage.styles'
-import { IMinifig, IMinifigPart, IOrderFormData } from './types'
 
-interface OrderPageProps {
+interface OrderPageViewProps {
   minifig: IMinifig | null
   parts: IMinifigPart[]
   orderFormData: IOrderFormData
@@ -17,7 +17,7 @@ interface OrderPageProps {
   states: IOption[]
 }
 
-export const OrderPage: React.FC<OrderPageProps> = ({
+export const OrderPageView: React.FC<OrderPageViewProps> = ({
   minifig,
   parts,
   orderFormData,

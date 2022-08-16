@@ -5,7 +5,7 @@ import { Input } from 'components/common/Input'
 import { Select } from 'components/common/Select'
 import { IOption } from 'components/common/Select/types'
 import { Title } from 'components/common/Title'
-import { IOrderFormData } from 'components/views/OrderPage/types'
+import { IOrderFormData } from 'components/views/OrderPage/OrderPage.interface'
 import { translate } from 'utils'
 import { FormStyled, HorizontalFormFields, Wrapper } from './OrderForm.styles'
 

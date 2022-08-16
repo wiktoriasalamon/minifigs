@@ -4,11 +4,10 @@ import { toast } from 'react-toastify'
 import { ordersApi, rebrickableApi, rebrickableUrls, statesApi, statesUrls } from 'api'
 import { IOption } from 'components/common/Select/types'
 import { getRandomOfArray } from 'utils'
-import { OrderPage } from './OrderPage'
+import { IMinifig, IMinifigPart, IOrderFormData, IState } from './OrderPage.interface'
 import { getOrderSchema } from './orderSchema'
-import { IMinifig, IMinifigPart, IOrderFormData, IState } from './types'
 
-export const OrderPageContainer: React.FC = () => {
+export const useOrderPage = () => {
   const [allMinifigs, setAllMinifigs] = useState<IMinifig[]>([])
   const [minifig, setCurrentMinifig] = useState<null | IMinifig>(null)
   const [minifigParts, setMinifigParts] = useState<IMinifigPart[]>([])
@@ -109,16 +108,14 @@ export const OrderPageContainer: React.FC = () => {
     }
   }
 
-  return (
-    <OrderPage
-      minifig={minifig}
-      parts={minifigParts}
-      orderFormData={orderFormData}
-      onSubmit={handleSubmit}
-      onDrawFigure={drawMinifig}
-      setData={setData}
-      isSubmitDisabled={!isFormValid}
-      states={states}
-    />
-  )
+  return {
+    minifigParts,
+    minifig,
+    isFormValid,
+    handleSubmit,
+    setData,
+    states,
+    orderFormData,
+    drawMinifig,
+  }
 }

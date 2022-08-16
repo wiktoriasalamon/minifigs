@@ -1,1 +1,1 @@
-export { OrderPageContainer } from './OrderPageContainer'
+export { OrderPage } from './OrderPage.connect'
