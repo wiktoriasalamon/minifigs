@@ -69,5 +69,12 @@ jobs:
           name: run tests
           command: npm test -- --coverage
 
+      - run:
+          name: artifacts fix
+          command: |
+            RESULTS_DIR=`ls -d artifacts*`
+            mkdir artifacts
+            cp $RESULTS_DIR/coverage artifacts
+
       - store_artifacts:
-          path: ./coverage
+          path: artifacts
