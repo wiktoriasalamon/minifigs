@@ -72,9 +72,9 @@ jobs:
       - run:
           name: artifacts fix
           command: |
-            RESULTS_DIR=`ls -d`
+            RESULTS_DIR=`ls -d coverage/lcov-report`
             mkdir coverage
-            cp -r $RESULTS_DIR/coverage/ coverage
+            cp $RESULTS_DIR/index.html coverage
 
       - store_artifacts:
           path: coverage
