@@ -34,6 +34,7 @@ jobs:
           gistID: ff6b0a9c2533fb95012faa87fe9d4591
           filename: functions-badge.json
           label: coverage:functions
+          message: 100%
           color: orange
           
       - name: Dynamic Badges
@@ -43,4 +44,5 @@ jobs:
           gistID: 0b893e77a446f764d9d9e90b7566647e
           filename: lines-badge.json
           label: coverage:lines
+          message: 100%
           color: orange
