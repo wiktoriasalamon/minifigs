@@ -17,7 +17,7 @@ jobs:
       
       - name: Get Coverage for badge
         run: |
-          npm run test:badges
+          npm test . -- --coverage
           
           SUMMARY="$(cat ./coverage/coverage-summary.json | head -1 | awk '{print $2}')"
           TOKENS=($(echo SUMMARY | tr ":" " " | tr "}" " "))
