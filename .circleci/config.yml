@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   heroku: circleci/heroku@0.0.10
+  browser-tools: circleci/browser-tools@1.2.3
 
 workflows:
   lint-build-test-deploy:
@@ -21,7 +22,7 @@ workflows:
 jobs:
   lint-code:
     docker:
-      - image: cimg/node:16.13.2
+      - image: cimg/node:17.2-browsers
     steps:
       - checkout
       - run:
@@ -46,9 +47,10 @@ jobs:
 
   build-and-test:
     docker:
-      - image: cimg/node:16.13.2
+      - image: cimg/node:17.2-browsers
     steps:
       - checkout
+      - browser-tools/install-browser-tools
       - run:
           name: update npm
           command: 'sudo npm install -g npm'
@@ -66,15 +68,8 @@ jobs:
             - ./node_modules
 
       - run:
-          name: run tests
+          name: run tests and collect coverage
           command: npm test -- --coverage
-
-      - run:
-          name: artifacts fix
-          command: |
-            RESULTS_DIR=`ls -d coverage/lcov-report`
-            mkdir coverage
-            cp $RESULTS_DIR/index.html coverage
 
       - store_artifacts:
           path: coverage
