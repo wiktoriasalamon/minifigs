@@ -1,4 +1,4 @@
-import { IOption } from 'components/common/Select/types'
+import { IOption } from 'components/common/Select'
 import { Figure } from 'components/modules/Figure'
 import { FigurePart } from 'components/modules/FigurePart'
 import { FigureSidebar } from 'components/modules/FigureSidebar'
