@@ -21,7 +21,7 @@ jobs:
           npm test . -- --coverage --coverage-reporters=json-summary
           
           SUMMARY="$(cat ./coverage/coverage-summary.json | head -1 | awk '{print $2}')"
-          TOKENS=($(echo SUMMARY | tr ":" " " | tr "}" " "))
+          TOKENS=($(echo ${SUMMARY} | tr ":" " " | tr "}" " "))
           
           echo "${SUMMARY}"
           echo "${TOKENS}"
