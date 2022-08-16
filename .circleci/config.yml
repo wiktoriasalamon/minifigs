@@ -1,11 +1,23 @@
 version: 2.1
+
+orbs:
+  heroku: circleci/heroku@0.0.10
+
 workflows:
-  lint-build-test:
+  lint-build-test-deploy:
     jobs:
       - lint-code
       - build-and-test:
           requires:
             - lint-code
+      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+          app-name: $HEROKU_APP_NAME
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: main
+
 jobs:
   lint-code:
     docker:
