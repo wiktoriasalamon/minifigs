@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   heroku: circleci/heroku@0.0.10
-  browser-tools: circleci/browser-tools@1.2.3
 
 workflows:
   lint-build-test-deploy:
@@ -50,7 +49,6 @@ jobs:
       - image: cimg/node:17.2-browsers
     steps:
       - checkout
-      - browser-tools/install-browser-tools
       - run:
           name: update npm
           command: 'sudo npm install -g npm'
