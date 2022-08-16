@@ -23,11 +23,6 @@ jobs:
           SUMMARY="$(cat ./coverage/coverage-summary.json | head -1 | awk '{print $2}')"
           TOKENS=($(echo ${SUMMARY} | tr ":" " " | tr "}" " "))
           
-          echo "${SUMMARY}"
-          echo "${TOKENS}"
-          echo "${TOKENS[5]}"
-          echo "${TOKENS[17]}"
-          
           echo "LINES_COVERAGE=$(echo ${TOKENS[5]})" >> $GITHUB_ENV
           echo "FUNCTIONS_COVERAGE=$(echo ${TOKENS[17]})" >> $GITHUB_ENV
 
@@ -38,8 +33,11 @@ jobs:
           gistID: ff6b0a9c2533fb95012faa87fe9d4591
           filename: functions-badge.json
           label: coverage:functions
-          message: ${{ env.FUNCTIONS_COVERAGE }}
-          color: green
+          message: ${{ env.FUNCTIONS_COVERAGE }}%
+          valColorRange: ${{ env.FUNCTIONS_COVERAGE }}
+          maxColorRange: 100
+          minColorRange: 0
+          namedLogo: jest
           
       - name: Dynamic Badges
         uses: Schneegans/dynamic-badges-action@v1.4.0
@@ -48,5 +46,8 @@ jobs:
           gistID: 0b893e77a446f764d9d9e90b7566647e
           filename: lines-badge.json
           label: coverage:lines
-          message: ${{ env.LINES_COVERAGE }}
-          color: green
+          message: ${{ env.LINES_COVERAGE }}%
+          valColorRange: ${{ env.LINES_COVERAGE }}
+          maxColorRange: 100
+          minColorRange: 0
+          namedLogo: jest
