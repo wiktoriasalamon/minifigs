@@ -98,5 +98,13 @@
       "eslint --fix",
       "prettier --write --config ./.prettierrc"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/public/"
+    ],
+    "coverageReporters": ["text"]
   }
 }
