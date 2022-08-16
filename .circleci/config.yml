@@ -69,7 +69,7 @@ jobs:
 
       - run:
           name: run tests and collect coverage
-          command: npm test -- --coverage
+          command: npm test -- --coverage .
 
       - store_artifacts:
           path: coverage
