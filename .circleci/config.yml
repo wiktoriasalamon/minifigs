@@ -70,4 +70,4 @@ jobs:
           command: npm test -- --coverage
 
       - store_artifacts:
-          path: coverage
+          path: ./coverage
