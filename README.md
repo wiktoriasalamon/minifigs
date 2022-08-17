@@ -21,8 +21,8 @@ The application was created according to a specification in <a href="./frontend-
 ## Technologies
 
 The project is created with:
-* <img src="./images/typescript.svg" width="15"></img> `typescript` (v4.7.4)
-* <img src="./images/react.svg" width="15"></img> `react` (v18.2.0)
+* `typescript` (v4.7.4)
+* `react` (v18.2.0)
 * `axios` (v0.27.2) - to connect with external api
 * `formik` (v2.2.9) - to build form
 * `react-i18nify` (v4.6.1) - for translations
