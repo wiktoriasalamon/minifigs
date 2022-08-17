@@ -1,4 +1,4 @@
-import { Paragraph } from 'components/atoms/Paragraph'
+import { Paragraph } from 'components/common/Paragraph'
 import { Description, Image, Wrapper } from './FigurePart.styles'
 
 interface Props {

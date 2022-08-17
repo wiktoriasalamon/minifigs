@@ -1,12 +1,12 @@
-import { Figure } from 'components/molecules/Figure'
-import { FigurePart } from 'components/molecules/FigurePart'
-import { IOption } from 'components/molecules/Select/types'
-import { FigureSidebar } from 'components/organisms/FigureSidebar'
-import { OrderFormContainer } from 'components/organisms/OrderForm'
+import { IOption } from 'components/common/Select'
+import { Figure } from 'components/modules/Figure'
+import { FigurePart } from 'components/modules/FigurePart'
+import { FigureSidebar } from 'components/modules/FigureSidebar'
+import { OrderFormContainer } from 'components/modules/OrderForm'
+import { IMinifig, IMinifigPart, IOrderFormData } from './OrderPage.interface'
 import { Wrapper } from './OrderPage.styles'
-import { IMinifig, IMinifigPart, IOrderFormData } from './types'
 
-interface OrderPageProps {
+interface OrderPageViewProps {
   minifig: IMinifig | null
   parts: IMinifigPart[]
   orderFormData: IOrderFormData
@@ -17,7 +17,7 @@ interface OrderPageProps {
   states: IOption[]
 }
 
-export const OrderPage: React.FC<OrderPageProps> = ({
+export const OrderPageView: React.FC<OrderPageViewProps> = ({
   minifig,
   parts,
   orderFormData,
