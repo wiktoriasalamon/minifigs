@@ -21,19 +21,27 @@ The application was created according to a specification in <a href="./frontend-
 ## Technologies
 
 The project is created with:
-* ...
+* <img src="./images/typescript.svg" width="15"></img> `typescript` (v4.7.4)
+* <img src="./images/react.svg" width="15"></img> `react` (v18.2.0)
+* `axios` (v0.27.2) - to connect with external api
+* `formik` (v2.2.9) - to build form
+* `react-i18nify` (v4.6.1) - for translations
+* `react-select` (v5.4.0) - for select input control with advanced features
+* `react-toastify` (v9.0.8) - for toast messages
+* `styled-components` (v5.3.5) - for styling (css-in-js)
+* `yup` (v032.11) - to validate form data
 
 <a name="screenshots"></a>
 ## Screenshots
 
 ### Empty Form
-<img src="./images/ss-empty-form.png" />
+<img src="./images/ss-empty-form.png"></img>
 
 ### Validation errors
-<img src="./images/ss-errors.png" />
+<img src="./images/ss-errors.png"></img>
 
 ### Completed Form
-<img src="./images/ss-completed-form.png" />
+<img src="./images/ss-completed-form.png"></img>
 
 <a name="setup"></a>
 ## Setup
@@ -50,3 +58,5 @@ npm start
 * `npm run storybook` - to run storybook
 * `npm test` - to run tests
 * `npm run lint` - to run eslint
+* `npm run lint:fix` - to fix eslint errors
+* `npm run format` - to run prettier and format code
