@@ -21,7 +21,7 @@ workflows:
 jobs:
   lint-code:
     docker:
-      - image: cimg/node:16.13.2
+      - image: cimg/node:17.2-browsers
     steps:
       - checkout
       - run:
@@ -46,7 +46,7 @@ jobs:
 
   build-and-test:
     docker:
-      - image: cimg/node:16.13.2
+      - image: cimg/node:17.2-browsers
     steps:
       - checkout
       - run:
@@ -66,5 +66,8 @@ jobs:
             - ./node_modules
 
       - run:
-          name: run tests
-          command: npm test
+          name: run tests and collect coverage
+          command: npm run test:badges
+
+      - store_artifacts:
+          path: coverage
