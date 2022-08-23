@@ -46,7 +46,19 @@ The project is created with:
 <a name="setup"></a>
 ## Setup
 
-To run this project, install it locally using npm:
+At first you need to create `.env` file in a root directory of the project. Copy the contents of the `.env.example` file to `.env` file. Then you need to get your own keys for used APIs and also add them to the `.env` file.
+
+### Rebrickable API
+
+Create an account on https://rebrickable.com/ website. After that you can generate an API key in Profile Settings -> API. The key should be added to the `.env` file as a `REACT_APP_REBRICKABLE_API_KEY` variable.
+
+### Rapid API
+
+Create an account on https://rapidapi.com/ website. Go to the US States API docs https://rapidapi.com/aptitudeapps/api/us-states/, copy your **X-RapidAPI-Key** and paste it to the `.env` file to a `REACT_APP_STATES_API_KEY` variable.
+
+### Run the project
+
+After creating your API keys you can run the project. To do it, install the project locally using npm:
 
 ```bash
 npm install
