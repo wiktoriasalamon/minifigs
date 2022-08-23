@@ -6,6 +6,8 @@ Simple application that allows users to order LEGO mini figures from the Harry P
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/wikk2207/0b893e77a446f764d9d9e90b7566647e/raw/lines-badge.json)
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/wikk2207/ff6b0a9c2533fb95012faa87fe9d4591/raw/44598f30f8b3b8e169dfdf74506a1921ff53e8b0/functions-badge.json)
 
+**[Demo app](https://ws-minifigs.herokuapp.com/)**
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
